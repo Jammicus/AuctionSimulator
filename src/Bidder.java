@@ -1,0 +1,47 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class Bidder {
+    double money;
+    int id;
+
+    public Bidder () {
+
+    }
+
+    public Bidder (int id, double money) {
+        this.money = money;
+        this.id = id;
+    }
+
+    public List<Bidder> createBidders(int numberOfBidders, double lowestMoneyValue, double highestMoneyValue) {
+        List<Bidder> listOfBidders = new ArrayList<>();
+
+        for(int i = 0; i < numberOfBidders;i++){
+            Random random = new Random();
+            Double randomMoneyValue = (random.nextInt((int)((highestMoneyValue-lowestMoneyValue)*10+1))+lowestMoneyValue*10) / 10.0;
+            listOfBidders.add(new Bidder(i,randomMoneyValue));
+        System.out.println(listOfBidders.get(i).getMoney());
+        }
+
+
+        return listOfBidders;
+    }
+
+    public double getMoney (){
+        return this.money;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setMoney (double money) {
+        this.money =money;
+    }
+
+    public void setId(int id) {
+        this.id =id;
+    }
+}
