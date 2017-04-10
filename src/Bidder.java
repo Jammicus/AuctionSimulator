@@ -15,7 +15,7 @@ public class Bidder implements Comparable<Bidder> {
         this.id = id;
     }
 
-    public List<Bidder> createBidders(int numberOfBidders, double lowestMoneyValue, double highestMoneyValue) {
+    public static List<Bidder> createBidders(int numberOfBidders, double lowestMoneyValue, double highestMoneyValue) {
         List<Bidder> listOfBidders = new ArrayList<>();
 
         for(int i = 0; i < numberOfBidders;i++){
@@ -44,7 +44,7 @@ public class Bidder implements Comparable<Bidder> {
         this.id =id;
     }
 
-    public List<Bidder> sortBiddersByMoneyAscending (List<Bidder> bidders){
+    public static List<Bidder> sortBiddersByMoneyAscending (List<Bidder> bidders){
         Collections.sort(bidders);
         return bidders;
     }

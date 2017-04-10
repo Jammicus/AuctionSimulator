@@ -64,10 +64,9 @@ public class BidderTests {
     @Test
     public void bidderValueBelowValue() {
         int iterations = 100;
-        Bidder bidder = new Bidder();
         List<Bidder> listOfBidders;
 
-        listOfBidders=bidder.createBidders(iterations,0,100);
+        listOfBidders=Bidder.createBidders(iterations,0,100);
 
         for (int i = 0; i < iterations; i++) {
             assertTrue(listOfBidders.get(i).getMoney() <= 100);
@@ -85,7 +84,7 @@ public class BidderTests {
         for (int i = 0; i < iterations; i++) {
             assertTrue(listOfBidders.get(i).getMoney() <= 100);
         }
-        bidder.sortBiddersByMoneyAscending(listOfBidders);
+        Bidder.sortBiddersByMoneyAscending(listOfBidders);
 
         for (int i = 0; i < iterations-1; i++){
             assertTrue(listOfBidders.get(i).getMoney()>=listOfBidders.get(i+1).getMoney());
