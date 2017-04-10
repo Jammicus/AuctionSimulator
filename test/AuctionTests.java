@@ -1,5 +1,5 @@
 
-public class AuctionTests {
 
+public class AuctionTests {
 
 }

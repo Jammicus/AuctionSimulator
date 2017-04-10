@@ -1,15 +1,12 @@
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * Created by james_walter on 08/04/2017.
- */
+
 public class BidderTests {
     @Test
     public void createBidder(){
@@ -45,19 +42,17 @@ public class BidderTests {
 
     @Test
     public void addBiddersToList(){
-        int numberOfBidders = 10;
         Bidder bidder = new Bidder();
-        List<Bidder> bidderList = new ArrayList<>();
+        List<Bidder> bidderList;
         bidderList = bidder.createBidders(10,0.0,100.0);
         assertEquals(10,bidderList.size());
     }
 
     @Test
     public void bidderValueAboveValue(){
-        double moneyRangeLow = 0;
         int iterations = 100;
         Bidder bidder = new Bidder();
-        List <Bidder> listOfBidders = new ArrayList<>();
+        List <Bidder> listOfBidders;
 
         listOfBidders=bidder.createBidders(iterations,0,100);
 
@@ -68,10 +63,9 @@ public class BidderTests {
 
     @Test
     public void bidderValueBelowValue() {
-        double moneyRangeHigh = 100.00;
         int iterations = 100;
         Bidder bidder = new Bidder();
-        List<Bidder> listOfBidders = new ArrayList<>();
+        List<Bidder> listOfBidders;
 
         listOfBidders=bidder.createBidders(iterations,0,100);
 
@@ -79,4 +73,24 @@ public class BidderTests {
             assertTrue(listOfBidders.get(i).getMoney() <= 100);
         }
     }
+
+    @Test
+    public void biddersSortedByHighestMoneyValue(){
+        int iterations = 100;
+        Bidder bidder = new Bidder();
+        List<Bidder> listOfBidders;
+
+        listOfBidders=bidder.createBidders(iterations,0,100);
+
+        for (int i = 0; i < iterations; i++) {
+            assertTrue(listOfBidders.get(i).getMoney() <= 100);
+        }
+        bidder.sortBiddersByMoneyAscending(listOfBidders);
+
+        for (int i = 0; i < iterations-1; i++){
+            assertTrue(listOfBidders.get(i).getMoney()>=listOfBidders.get(i+1).getMoney());
+    }
+    }
+
+
 }

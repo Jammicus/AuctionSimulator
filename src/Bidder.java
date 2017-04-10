@@ -1,13 +1,13 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class Bidder {
-    double money;
-    int id;
+public class Bidder implements Comparable<Bidder> {
+    private double money;
+    private int id;
 
     public Bidder () {
-
     }
 
     public Bidder (int id, double money) {
@@ -22,7 +22,6 @@ public class Bidder {
             Random random = new Random();
             Double randomMoneyValue = (random.nextInt((int)((highestMoneyValue-lowestMoneyValue)*10+1))+lowestMoneyValue*10) / 10.0;
             listOfBidders.add(new Bidder(i,randomMoneyValue));
-        System.out.println(listOfBidders.get(i).getMoney());
         }
 
 
@@ -44,4 +43,24 @@ public class Bidder {
     public void setId(int id) {
         this.id =id;
     }
+
+    public List<Bidder> sortBiddersByMoneyAscending (List<Bidder> bidders){
+        Collections.sort(bidders);
+        System.out.println(bidders.get(0).getMoney());
+        System.out.println(bidders.get(1).getMoney());
+        return bidders;
+    }
+
+    public int compareTo(Bidder bidder){
+        if (this.money<bidder.getMoney()){
+            return 1;
+        }
+        else if (this.money>bidder.getMoney()){
+            return -1;
+        }
+        return 0;
+    }
+
+
+
 }
