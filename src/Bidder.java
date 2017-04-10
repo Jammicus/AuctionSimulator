@@ -46,8 +46,6 @@ public class Bidder implements Comparable<Bidder> {
 
     public List<Bidder> sortBiddersByMoneyAscending (List<Bidder> bidders){
         Collections.sort(bidders);
-        System.out.println(bidders.get(0).getMoney());
-        System.out.println(bidders.get(1).getMoney());
         return bidders;
     }
 
