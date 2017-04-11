@@ -67,4 +67,6 @@ public class AuctionTests {
         listOfBidders.add(bidderPrime);
         assertFalse(fp.simulateAuction(listOfBidders,150).equals(bidderPrime));
     }
+
+
 }
