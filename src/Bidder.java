@@ -24,7 +24,6 @@ public class Bidder implements Comparable<Bidder> {
             listOfBidders.add(new Bidder(i,randomMoneyValue));
         }
 
-
         return listOfBidders;
     }
 
@@ -58,7 +57,4 @@ public class Bidder implements Comparable<Bidder> {
         }
         return 0;
     }
-
-
-
 }

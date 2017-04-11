@@ -1,8 +1,7 @@
 
 import java.util.List;
 
-
-public interface Auction {
+public interface Auction{
 
      void simulateAuction(List<Bidder> bidders);
 

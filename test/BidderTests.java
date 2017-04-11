@@ -84,11 +84,12 @@ public class BidderTests {
         for (int i = 0; i < iterations; i++) {
             assertTrue(listOfBidders.get(i).getMoney() <= 100);
         }
+
         Bidder.sortBiddersByMoneyAscending(listOfBidders);
 
         for (int i = 0; i < iterations-1; i++){
             assertTrue(listOfBidders.get(i).getMoney()>=listOfBidders.get(i+1).getMoney());
-    }
+        }
     }
 
 
