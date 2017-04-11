@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AuctionTests {
@@ -57,6 +58,13 @@ public class AuctionTests {
 
     @Test
     public void bidderWithMoneyLessThanAuctionValueDoesNotWin(){
+        Auction fp = new FirstPrice();
+        Bidder bidder = new Bidder(1,175);
+        Bidder bidderPrime = new Bidder(2,125);
 
+        List<Bidder> listOfBidders = new ArrayList<Bidder>();
+        listOfBidders.add(bidder);
+        listOfBidders.add(bidderPrime);
+        assertFalse(fp.simulateAuction(listOfBidders,150).equals(bidderPrime));
     }
 }
