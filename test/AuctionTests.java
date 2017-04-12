@@ -65,7 +65,25 @@ public class AuctionTests {
         List<Bidder> listOfBidders = new ArrayList<Bidder>();
         listOfBidders.add(bidder);
         listOfBidders.add(bidderPrime);
+
         assertFalse(fp.simulateAuction(listOfBidders,150).equals(bidderPrime));
+    }
+
+    @Test
+    public void tieBreakFirstPrice(){
+        Auction fp = new FirstPrice();
+        Bidder bidder = new Bidder(1,150);
+        Bidder bidderPrime = new Bidder(2,150);
+        Bidder bidderPrimePrime = new Bidder(3,100);
+        Bidder bidderPrimePrimePrime = new Bidder(4,125);
+
+        List<Bidder> listOfBidders = new ArrayList<Bidder>();
+        listOfBidders.add(bidder);
+        listOfBidders.add(bidderPrime);
+        listOfBidders.add(bidderPrimePrime);
+        listOfBidders.add(bidderPrimePrimePrime);
+
+        assertTrue(fp.simulateAuction(listOfBidders,100).equals(bidder)||fp.simulateAuction(listOfBidders,100).equals(bidderPrime));
     }
 
 

@@ -5,5 +5,4 @@ public interface Auction{
 
      Bidder simulateAuction(List<Bidder> bidders, double auctionValue);
 
-
 }
