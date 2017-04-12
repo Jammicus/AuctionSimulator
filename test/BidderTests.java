@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class BidderTests {
+
     @Test
     public void createBidder() {
         Bidder bidder = new Bidder(0, 125);

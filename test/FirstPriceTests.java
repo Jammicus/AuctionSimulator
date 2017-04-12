@@ -7,9 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class AuctionTests {
+public class FirstPriceTests {
 
-    //refactor
+    //Bidder
     @Test
     public void returnHighestBidder(){
         Auction fp = new FirstPrice();
@@ -20,7 +20,6 @@ public class AuctionTests {
         listOfBidders.add(bidder);
         listOfBidders.add(bidderPrime);
         listOfBidders.add(bidderPrimePrime);
-
 
         assertEquals(bidderPrime.getMoney(), (fp.simulateAuction(listOfBidders,250)).getMoney());
 
@@ -57,7 +56,7 @@ public class AuctionTests {
     }
 
     @Test
-    public void bidderWithMoneyLessThanAuctionValueDoesNotWin(){
+    public void bidderWithMoneyLessThanAuctionValueDoesNotWinFP(){
         Auction fp = new FirstPrice();
         Bidder bidder = new Bidder(1,175);
         Bidder bidderPrime = new Bidder(2,125);
@@ -85,6 +84,4 @@ public class AuctionTests {
 
         assertTrue(fp.simulateAuction(listOfBidders,100).equals(bidder)||fp.simulateAuction(listOfBidders,100).equals(bidderPrime));
     }
-
-
 }
