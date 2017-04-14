@@ -28,8 +28,7 @@ public class FirstPrice implements Auction {
         winningBidder = (winnerDetermination(bidders, auctionValue));
         return new FirstPrice(winningBidder,winningBidder.getMoney(),winningBidder.getMoney());
     }
-    //Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays
-    //T E S T
+
     @Override
     public Auction setAuctionResults(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays) {
         return new FirstPrice(winningBidder, finalAuctionValue, priceWinningBidderPays);

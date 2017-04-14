@@ -7,6 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class SecondPriceTests {
+//Needs correct price tests
+
 
     @Test
     public void simulateAuctionTieBreakSecondPrice() {
@@ -67,5 +69,20 @@ public class SecondPriceTests {
 
         assertTrue((sp.simulateAuction(listOfBidders,100).getWinningBidderID()==bidder.getId())
                 ||sp.simulateAuction(listOfBidders,100).getWinningBidderID()==bidderPrime.getId());
+    }
+
+    @Test
+    public void correctpriceWinningBidderPaysSecondPrice(){
+        Auction sp = new SecondPrice();
+        Bidder bidder = new Bidder(1,175);
+        Bidder bidderPrime = new Bidder(2,125);
+        Bidder bidderPrimePrime = new Bidder(3,100);
+
+        List<Bidder> listOfBidders = new ArrayList<Bidder>();
+        listOfBidders.add(bidder);
+        listOfBidders.add(bidderPrime);
+        listOfBidders.add(bidderPrimePrime);
+
+        assertTrue(sp.simulateAuction(listOfBidders,100).getPriceWinningBidderPays()==bidderPrime.getMoney());
     }
 }
