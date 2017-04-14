@@ -26,7 +26,6 @@ public class Descending implements Auction {
 
         while (bidders.get(0).getMoney() < auctionValue) {
             auctionValue = biddingRules(auctionValue);
-            System.out.println(auctionValue);
         }
 
         winningBidder = (winnerDetermination(bidders, auctionValue));
