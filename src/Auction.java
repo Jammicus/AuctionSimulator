@@ -19,7 +19,7 @@ public interface Auction{
 
      double getInitialBidderMoney();
 
-     int getWinningBidderID()
+     int getWinningBidderID();
 
 //     private double finalAuctionValue;
 //     private double priceWinningBidderPays;

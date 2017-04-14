@@ -21,7 +21,7 @@ public class FirstPriceTests {
         listOfBidders.add(bidderPrime);
         listOfBidders.add(bidderPrimePrime);
 
-        //assertEquals(bidderPrime.getMoney(), (fp.simulateAuction(listOfBidders,250)).getMoney());
+        assertEquals(bidderPrime.getMoney(), (fp.simulateAuction(listOfBidders,250)).getInitialBidderMoney());
 
     }
 
@@ -38,7 +38,8 @@ public class FirstPriceTests {
         listOfBidders.add(bidderPrime);
         listOfBidders.add(bidderPrimePrime);
 
-        //assertTrue(fp.simulateAuction(listOfBidders,100).equals(bidder) ||fp.simulateAuction(listOfBidders,100).equals(bidderPrime));
+        assertTrue((fp.simulateAuction(listOfBidders,100).getWinningBidderID()) == bidder.getId() ||
+                (fp.simulateAuction(listOfBidders,100).getWinningBidderID()) == bidderPrime.getId());
     }
 
     @Test
@@ -52,8 +53,7 @@ public class FirstPriceTests {
         listOfBidders.add(bidderPrime);
         listOfBidders.add(bidderPrimePrime);
 
-        //assertTrue(fp.simulateAuction(listOfBidders,100).equals(bidder));
-
+        assertTrue(fp.simulateAuction(listOfBidders,100).getWinningBidderID() == bidder.getId());
     }
 
     @Test
@@ -66,7 +66,7 @@ public class FirstPriceTests {
         listOfBidders.add(bidder);
         listOfBidders.add(bidderPrime);
 
-        //assertFalse(fp.simulateAuction(listOfBidders,150).equals(bidderPrime));
+        assertFalse(fp.simulateAuction(listOfBidders,150).getWinningBidderID() == bidderPrime.getId());
     }
 
     @Test
@@ -83,6 +83,7 @@ public class FirstPriceTests {
         listOfBidders.add(bidderPrimePrime);
         listOfBidders.add(bidderPrimePrimePrime);
 
-        //assertTrue(fp.simulateAuction(listOfBidders,100).equals(bidder)||fp.simulateAuction(listOfBidders,100).equals(bidderPrime));
+        assertTrue((fp.simulateAuction(listOfBidders,100).getWinningBidderID()==bidder.getId())
+                ||fp.simulateAuction(listOfBidders,100).getWinningBidderID()==bidderPrime.getId());
     }
 }

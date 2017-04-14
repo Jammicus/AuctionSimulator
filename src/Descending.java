@@ -18,21 +18,21 @@ public class Descending implements Auction {
 
     @Override
     public double getFinalAuctionValue() {
-        return 0;
+        return finalAuctionValue;
     }
 
     @Override
     public double getPriceWinningBidderPays() {
-        return 0;
+        return priceWinningBidderPays;
     }
 
     @Override
     public double getInitialBidderMoney() {
-        return 0;
+        return initialBidderMoney;
     }
 
     @Override
     public int getWinningBidderID() {
-        return 0;
+        return bidderID;
     }
 }
