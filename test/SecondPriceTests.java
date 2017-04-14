@@ -29,37 +29,37 @@ public class SecondPriceTests {
     @Test
     public void simulateAuctionNoTieBreakSecondPrice() {
         Auction sp = new SecondPrice();
-        Bidder bidder = new Bidder(1,150);
-        Bidder bidderPrime = new Bidder(2,125);
-        Bidder bidderPrimePrime = new Bidder(3,100);
+        Bidder bidder = new Bidder(1, 150);
+        Bidder bidderPrime = new Bidder(2, 125);
+        Bidder bidderPrimePrime = new Bidder(3, 100);
         List<Bidder> listOfBidders = new ArrayList<Bidder>();
         listOfBidders.add(bidder);
         listOfBidders.add(bidderPrime);
         listOfBidders.add(bidderPrimePrime);
 
-        assertTrue(sp.simulateAuction(listOfBidders,100).getWinningBidderID() == bidder.getId());
+        assertTrue(sp.simulateAuction(listOfBidders, 100).getWinningBidderID() == bidder.getId());
     }
 
     @Test
-    public void bidderWithMoneyLessThanAuctionValueDoesNotWinSecondPrice(){
+    public void bidderWithMoneyLessThanAuctionValueDoesNotWinSecondPrice() {
         Auction sp = new SecondPrice();
-        Bidder bidder = new Bidder(1,175);
-        Bidder bidderPrime = new Bidder(2,125);
+        Bidder bidder = new Bidder(1, 175);
+        Bidder bidderPrime = new Bidder(2, 125);
 
         List<Bidder> listOfBidders = new ArrayList<Bidder>();
         listOfBidders.add(bidder);
         listOfBidders.add(bidderPrime);
 
-        assertFalse(sp.simulateAuction(listOfBidders,150).getWinningBidderID() == bidderPrime.getId());
+        assertFalse(sp.simulateAuction(listOfBidders, 150).getWinningBidderID() == bidderPrime.getId());
     }
 
     @Test
-    public void tieBreakSecondPrice(){
+    public void tieBreakSecondPrice() {
         Auction sp = new SecondPrice();
-        Bidder bidder = new Bidder(1,150);
-        Bidder bidderPrime = new Bidder(2,150);
-        Bidder bidderPrimePrime = new Bidder(3,100);
-        Bidder bidderPrimePrimePrime = new Bidder(4,125);
+        Bidder bidder = new Bidder(1, 150);
+        Bidder bidderPrime = new Bidder(2, 150);
+        Bidder bidderPrimePrime = new Bidder(3, 100);
+        Bidder bidderPrimePrimePrime = new Bidder(4, 125);
 
         List<Bidder> listOfBidders = new ArrayList<Bidder>();
         listOfBidders.add(bidder);
@@ -67,22 +67,22 @@ public class SecondPriceTests {
         listOfBidders.add(bidderPrimePrime);
         listOfBidders.add(bidderPrimePrimePrime);
 
-        assertTrue((sp.simulateAuction(listOfBidders,100).getWinningBidderID()==bidder.getId())
-                ||sp.simulateAuction(listOfBidders,100).getWinningBidderID()==bidderPrime.getId());
+        assertTrue((sp.simulateAuction(listOfBidders, 100).getWinningBidderID() == bidder.getId())
+                || sp.simulateAuction(listOfBidders, 100).getWinningBidderID() == bidderPrime.getId());
     }
 
     @Test
-    public void correctpriceWinningBidderPaysSecondPrice(){
+    public void correctpriceWinningBidderPaysSecondPrice() {
         Auction sp = new SecondPrice();
-        Bidder bidder = new Bidder(1,175);
-        Bidder bidderPrime = new Bidder(2,125);
-        Bidder bidderPrimePrime = new Bidder(3,100);
+        Bidder bidder = new Bidder(1, 175);
+        Bidder bidderPrime = new Bidder(2, 125);
+        Bidder bidderPrimePrime = new Bidder(3, 100);
 
         List<Bidder> listOfBidders = new ArrayList<Bidder>();
         listOfBidders.add(bidder);
         listOfBidders.add(bidderPrime);
         listOfBidders.add(bidderPrimePrime);
 
-        assertTrue(sp.simulateAuction(listOfBidders,100).getPriceWinningBidderPays()==bidderPrime.getMoney());
+        assertTrue(sp.simulateAuction(listOfBidders, 100).getPriceWinningBidderPays() == bidderPrime.getMoney());
     }
 }
