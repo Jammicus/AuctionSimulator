@@ -72,7 +72,7 @@ public class SecondPriceTests {
     }
 
     @Test
-    public void correctpriceWinningBidderPaysSecondPrice() {
+    public void correctPriceWinningBidderPaysSecondPrice() {
         Auction sp = new SecondPrice();
         Bidder bidder = new Bidder(1, 175);
         Bidder bidderPrime = new Bidder(2, 125);

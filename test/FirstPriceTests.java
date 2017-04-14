@@ -88,7 +88,7 @@ public class FirstPriceTests {
     }
 
     @Test
-    public void correctpriceWinningBidderPaysSecondPrice(){
+    public void correctPriceWinningBidderPaysSecondPrice(){
         Auction fp = new FirstPrice();
         Bidder bidder = new Bidder(1,175);
         Bidder bidderPrime = new Bidder(2,125);
