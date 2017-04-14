@@ -11,7 +11,7 @@ public class FirstPriceTests {
 
     //Bidder
     @Test
-    public void returnHighestBidder(){
+    public void returnHighestBidderFirstPrice(){
         Auction fp = new FirstPrice();
         Bidder bidder = new Bidder(1,100);
         Bidder bidderPrime = new Bidder(2,123);
@@ -28,7 +28,7 @@ public class FirstPriceTests {
     //First Price Tests
 
     @Test
-    public void simulateFPAuctionTieBreak() {
+    public void simulateAuctionTieBreakFirstPrice() {
         Auction fp = new FirstPrice();
         Bidder bidder = new Bidder(1,123);
         Bidder bidderPrime = new Bidder(2,123);
@@ -43,7 +43,7 @@ public class FirstPriceTests {
     }
 
     @Test
-    public void simulateFPAuctionNoTieBreak() {
+    public void simulateAuctionNoTieBreakFirstPrice() {
         Auction fp = new FirstPrice();
         Bidder bidder = new Bidder(1,150);
         Bidder bidderPrime = new Bidder(2,125);
@@ -57,7 +57,7 @@ public class FirstPriceTests {
     }
 
     @Test
-    public void bidderWithMoneyLessThanAuctionValueDoesNotWinFP(){
+    public void bidderWithMoneyLessThanAuctionValueDoesNotWinFirstPrice(){
         Auction fp = new FirstPrice();
         Bidder bidder = new Bidder(1,175);
         Bidder bidderPrime = new Bidder(2,125);
