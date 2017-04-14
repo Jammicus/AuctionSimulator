@@ -83,4 +83,20 @@ public class AscendingTests {
 
         assertTrue(as.simulateAuction(listOfBidders, 0).getPriceWinningBidderPays() == 6);
     }
+
+
+    @Test
+    public void correctPriceWithTieBreakAscending() {
+        Auction as = new Ascending();
+        Bidder bidder = new Bidder(1, 2000);
+        Bidder bidderPrime = new Bidder(2, 2000);
+        Bidder bidderPrimePrime = new Bidder(3, 1);
+
+        List<Bidder> listOfBidders = new ArrayList<Bidder>();
+        listOfBidders.add(bidder);
+        listOfBidders.add(bidderPrime);
+        listOfBidders.add(bidderPrimePrime);
+
+        assertTrue(as.simulateAuction(listOfBidders,0).getPriceWinningBidderPays()==2000);
+    }
 }

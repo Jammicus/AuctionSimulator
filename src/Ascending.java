@@ -64,19 +64,17 @@ public class Ascending implements Auction {
         return bidderID;
     }
 
-    // to do
     private Bidder winnerDetermination(List<Bidder> bidders, double auctionValue) {
 
         if (bidders.size() < 2) {
             return bidders.get(0);
-        } else if (bidders.get(0).getMoney() == bidders.get(1).getMoney() && bidders.get(0).getMoney() >= auctionValue) {
+        } else if (bidders.get(0).getMoney() >= auctionValue && bidders.get(1).getMoney() >= auctionValue) {
             return biddersWithEqualValues(bidders);
         } else {
             return bidders.get(0);
         }
     }
 
-    //to do
     private Bidder biddersWithEqualValues(List<Bidder> bidders) {
         List<Bidder> tieBreakBidders = new ArrayList<>();
         Random random = new Random();
