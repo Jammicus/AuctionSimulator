@@ -1,23 +1,19 @@
-First Price:
-
-Highest Bidder Wins
-
-Second Price:
-
-Highest bidder wins, pays the price of second highest bidder
-
-Ascending:
-
-Bidding rounds until only one bidder can bid (In case that never happens, go back to the previous round and hold a tie break on that value)
-
-Descending:
-Auction value goes down, first person to call in on that value wins.
-
-
 TO DO:
 
+Cover all possible cases for each of the Auctions before merging in to master
 
-Find the Risk Adverseness formunlas
+Allow user input to determine:
+    What auction is run
+    Number of bidders
+    Money range for bidders
+    (Potentially refactor the simulate auction?)
+
+
+Find the Risk Adverseness Formula
+Allow mutiple simulations (Multi thread)
+Allow bidders values to change due to risk adverseness
+
+------
 JavaFX for realtime graph plotting?
 http://www.oracle.com/technetwork/java/javase/overview/javafx-overview-2158620.html
 
