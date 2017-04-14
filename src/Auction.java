@@ -4,13 +4,14 @@ import java.util.List;
 
 public interface Auction{
      //To Store Auction Results
-
+     //Need to think about this.
      List<Auction> auctionResults = new ArrayList<>();
 
-     //Return auction object with the relevant details???
-     Auction simulateAuction(List<Bidder> bidders, double auctionValue);
-     //Think about Params here
 
+     Auction simulateAuction(List<Bidder> bidders, double auctionValue);
+
+
+     //Think about this method and getFinalAuctionValue;
      Auction setAuctionResults(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays);
 
      double getFinalAuctionValue();
@@ -20,9 +21,4 @@ public interface Auction{
      double getInitialBidderMoney();
 
      int getWinningBidderID();
-
-//     private double finalAuctionValue;
-//     private double priceWinningBidderPays;
-//     private double initialBidderMoney;
-//     private int bidderID;
 }

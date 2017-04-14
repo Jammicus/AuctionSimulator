@@ -24,7 +24,6 @@ public class DescendingTests {
                 (ds.simulateAuction(listOfBidders, 900).getWinningBidderID()) == bidderPrime.getId());
     }
 
-
     @Test
     public void simulateAuctionNoTieBreakSecondPrice() {
         Auction ds = new Descending();
@@ -71,7 +70,7 @@ public class DescendingTests {
     }
 
     @Test
-    public void correctPriceWinningBidderPaysSecondPrice() {
+    public void correctPriceWinningBidderPaysDescending() {
         Auction ds = new Descending();
         Bidder bidder = new Bidder(1, 200);
         Bidder bidderPrime = new Bidder(2, 125);
@@ -82,6 +81,6 @@ public class DescendingTests {
         listOfBidders.add(bidderPrime);
         listOfBidders.add(bidderPrimePrime);
 
-        assertTrue(ds.simulateAuction(listOfBidders, 900).getPriceWinningBidderPays() == bidderPrime.getMoney());
+        assertTrue(ds.simulateAuction(listOfBidders, 900).getPriceWinningBidderPays() == 200);
     }
 }
