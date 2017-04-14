@@ -29,16 +29,6 @@ public class SecondPrice implements Auction {
     }
 
     @Override
-    public Auction setAuctionResults(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays) {
-        return null;
-    }
-
-    @Override
-    public double getFinalAuctionValue() {
-        return finalAuctionValue;
-    }
-
-    @Override
     public double getPriceWinningBidderPays() {
         return priceWinningBidderPays;
     }

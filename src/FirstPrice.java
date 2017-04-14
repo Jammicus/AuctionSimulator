@@ -30,16 +30,6 @@ public class FirstPrice implements Auction {
     }
 
     @Override
-    public Auction setAuctionResults(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays) {
-        return new FirstPrice(winningBidder, finalAuctionValue, priceWinningBidderPays);
-    }
-
-    @Override
-    public double getFinalAuctionValue() {
-        return finalAuctionValue;
-    }
-
-    @Override
     public double getPriceWinningBidderPays() {
         return priceWinningBidderPays;
     }
