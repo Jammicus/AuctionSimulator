@@ -1,0 +1,23 @@
+First Price:
+
+Highest Bidder Wins
+
+Second Price:
+
+Highest bidder wins, pays the price of second highest bidder
+
+Ascending:
+
+Bidding rounds until only one bidder can bid (In case that never happens, go back to the previous round and hold a tie break on that value)
+
+Descending:
+Auction value goes down, first person to call in on that value wins.
+
+
+TO DO:
+
+
+Find the Risk Adverseness formunlas
+JavaFX for realtime graph plotting?
+http://www.oracle.com/technetwork/java/javase/overview/javafx-overview-2158620.html
+
