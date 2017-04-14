@@ -21,18 +21,38 @@ public class FirstPrice implements Auction {
 
     }
 
-    //instead of returning a winning bidder, return the First price object with the details of the winning auction.
-    //Will need to change UTs
     @Override
-    public Bidder simulateAuction(List<Bidder> bidders, double auctionValue) {
+    public Auction simulateAuction(List<Bidder> bidders, double auctionValue) {
+        Bidder winningBidder;
         Bidder.sortBiddersByMoneyAscending(bidders);
-        return winnerDetermination(bidders, auctionValue);
+        winningBidder = (winnerDetermination(bidders, auctionValue));
+        return new FirstPrice(winningBidder,winningBidder.getMoney(),winningBidder.getMoney());
     }
     //Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays
     //T E S T
     @Override
     public Auction setAuctionResults(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays) {
         return new FirstPrice(winningBidder, finalAuctionValue, priceWinningBidderPays);
+    }
+
+    @Override
+    public double getFinalAuctionValue() {
+        return 0;
+    }
+
+    @Override
+    public double getPriceWinningBidderPays() {
+        return 0;
+    }
+
+    @Override
+    public double getInitialBidderMoney() {
+        return 0;
+    }
+
+    @Override
+    public int getWinningBidderID() {
+        return 0;
     }
 
     private Bidder winnerDetermination(List<Bidder> bidders, double auctionValue) {
