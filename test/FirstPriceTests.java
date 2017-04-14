@@ -40,6 +40,7 @@ public class FirstPriceTests {
 
         assertTrue(fp.simulateAuction(listOfBidders,100).equals(bidder) ||fp.simulateAuction(listOfBidders,100).equals(bidderPrime));
     }
+
     @Test
     public void simulateFPAuctionNoTieBreak() {
         Auction fp = new FirstPrice();

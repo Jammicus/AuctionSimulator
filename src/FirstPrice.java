@@ -3,17 +3,37 @@ import java.util.List;
 import java.util.Random;
 
 public class FirstPrice implements Auction {
-    /**
-     * Sort
-     * Check return highest bidder
-     * if a tiebreak, select one at random
-     */
+
+    private double finalAuctionValue;
+    private double priceWinningBidderPays;
+    private double initialBidderMoney;
+    private int bidderID;
+
+    public FirstPrice() {
+
+    }
+    
+    public FirstPrice(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays){
+        this.finalAuctionValue = finalAuctionValue;
+        this.priceWinningBidderPays = priceWinningBidderPays;
+        this.bidderID = winningBidder.getId();
+        this.initialBidderMoney = winningBidder.getMoney();
+
+    }
+
+    //instead of returning a winning bidder, return the First price object with the details of the winning auction.
+    //Will need to change UTs
     @Override
     public Bidder simulateAuction(List<Bidder> bidders, double auctionValue) {
         Bidder.sortBiddersByMoneyAscending(bidders);
         return winnerDetermination(bidders, auctionValue);
     }
-
+    //Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays
+    //T E S T
+    @Override
+    public Auction setAuctionResults(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays) {
+        return new FirstPrice(winningBidder, finalAuctionValue, priceWinningBidderPays);
+    }
 
     private Bidder winnerDetermination(List<Bidder> bidders, double auctionValue) {
         if (bidders.size() < 2) {
@@ -39,5 +59,4 @@ public class FirstPrice implements Auction {
 
         return tieBreakBidders.get(random.nextInt(tieBreakBidders.size() - 1) + 0);
     }
-
 }
