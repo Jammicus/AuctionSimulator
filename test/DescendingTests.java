@@ -102,7 +102,7 @@ public class DescendingTests {
     @Test
     public void bidderRuleLessThanOneHundred() {
         Auction ds = new Descending();
-        Bidder bidder = new Bidder(1, 90);
+        Bidder bidder = new Bidder(1, 97);
         Bidder bidderPrime = new Bidder(2, 70);
         Bidder bidderPrimePrime = new Bidder(3, 1);
 
@@ -117,7 +117,7 @@ public class DescendingTests {
     @Test
     public void bidderRuleLessThanOneThousand() {
         Auction ds = new Descending();
-        Bidder bidder = new Bidder(1, 900);
+        Bidder bidder = new Bidder(1, 923);
         Bidder bidderPrime = new Bidder(2, 500);
         Bidder bidderPrimePrime = new Bidder(3, 1);
 
@@ -132,7 +132,7 @@ public class DescendingTests {
     @Test
     public void bidderRuleGreaterThanOneThousand() {
         Auction ds = new Descending();
-        Bidder bidder = new Bidder(1, 9000);
+        Bidder bidder = new Bidder(1, 9123);
         Bidder bidderPrime = new Bidder(2, 5000);
         Bidder bidderPrimePrime = new Bidder(3, 1);
 
