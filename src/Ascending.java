@@ -36,7 +36,7 @@ public class Ascending implements Auction {
         }
 
         winningBidder = (winnerDetermination(bidders, auctionValue));
-        return new Ascending(winningBidder, winningBidder.getMoney(), auctionValue);
+        return new Ascending(winningBidder, auctionValue, auctionValue);
     }
 
     @Override
