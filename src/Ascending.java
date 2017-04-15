@@ -59,7 +59,7 @@ public class Ascending implements Auction {
         if (bidders.size() < 2) {
             return bidders.get(0);
         } else if (bidders.get(0).getMoney() >= auctionValue && bidders.get(1).getMoney() >= auctionValue) {
-            return biddersWithEqualValues(bidders,auctionValue);
+            return biddersWithEqualValues(bidders, auctionValue);
         } else {
             return bidders.get(0);
         }
@@ -75,8 +75,6 @@ public class Ascending implements Auction {
                 tieBreakBidders.add(bidders.get(i));
             }
         }
-        System.out.println(tieBreakBidders.size());
-
         return tieBreakBidders.get(random.nextInt(tieBreakBidders.size() - 1) + 0);
     }
 
