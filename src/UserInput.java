@@ -1,3 +1,5 @@
+import com.sun.org.apache.xml.internal.security.Init;
+
 import java.util.Scanner;
 
 public class UserInput {
@@ -15,6 +17,7 @@ public class UserInput {
 
     public static void gatherUserInput() {
         Scanner scanner = new Scanner(System.in);
+        Initializer initializer = new Initializer();
 
         System.out.println("Please input the type of auction you would like to simulate");
         auctionType = scanner.nextLine();
@@ -35,7 +38,7 @@ public class UserInput {
         validateUserInput(auctionType, numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue);
         System.out.println("Initializing simulation");
 
-        Initializer.prepareAuction(auctionType, numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue);
+        initializer.prepareAuction(auctionType, numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue);
     }
 
 
