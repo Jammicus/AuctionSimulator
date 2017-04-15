@@ -31,10 +31,11 @@ public class UserInput {
         upperBoundBidderValue = scanner.nextDouble();
 
         System.out.println("Validating your input, please wait.");
+        auctionType = auctionType.replaceAll("\\s+", "");
         validateUserInput(auctionType, numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue);
         System.out.println("Initializing simulation");
 
-        //Initializer.prepareAuction();
+        Initializer.prepareAuction(auctionType, numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue);
     }
 
 
@@ -47,7 +48,6 @@ public class UserInput {
     }
 
     private static void validateAuctionType(String auctionType) {
-        auctionType = auctionType.replaceAll("\\s+", "");
 
         if (!auctionType.equalsIgnoreCase("firstprice") &&
                 (!auctionType.equalsIgnoreCase("secondprice") &&

@@ -17,9 +17,9 @@ public class Bidder implements Comparable<Bidder> {
 
     public static List<Bidder> createBidders(int numberOfBidders, double lowestMoneyValue, double highestMoneyValue) {
         List<Bidder> listOfBidders = new ArrayList<>();
-        Random random = new Random();
 
         for (int i = 0; i < numberOfBidders; i++) {
+            Random random = new Random();
             Double randomMoneyValue = (random.nextInt((int) ((highestMoneyValue - lowestMoneyValue) * 10 + 1)) + lowestMoneyValue * 10) / 10.0;
             listOfBidders.add(new Bidder(i, randomMoneyValue));
         }
@@ -58,6 +58,11 @@ public class Bidder implements Comparable<Bidder> {
 
     @Override
     public String toString(){
-        return ""+money+"";
+        return ""+getMoney()+"";
+    }
+
+    public void printBidderDetails(){
+        System.out.println("Bidder ID is:" + getId());
+        System.out.println("Bidder money is: " + getMoney());
     }
 }
