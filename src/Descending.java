@@ -29,7 +29,7 @@ public class Descending implements Auction {
         }
 
         winningBidder = (winnerDetermination(bidders, auctionValue));
-        return new Descending(winningBidder, winningBidder.getMoney(), auctionValue);
+        return new Descending(winningBidder, auctionValue, auctionValue);
     }
 
     @Override
