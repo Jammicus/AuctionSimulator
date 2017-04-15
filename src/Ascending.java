@@ -30,7 +30,7 @@ public class Ascending implements Auction {
             auctionValueHolder = auctionValue;
             auctionValue = biddingRules(auctionValue);
         }
-       
+
         if (bidders.get(0).getMoney() < auctionValue) {
             auctionValue = auctionValueHolder;
         }

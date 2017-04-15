@@ -1,13 +1,13 @@
 
 import java.util.List;
 
-public interface Auction{
+public interface Auction {
 
-     Auction simulateAuction(List<Bidder> bidders, double auctionValue);
+    Auction simulateAuction(List<Bidder> bidders, double auctionValue);
 
-     double getPriceWinningBidderPays();
+    double getPriceWinningBidderPays();
 
-     double getInitialBidderMoney();
+    double getInitialBidderMoney();
 
-     int getWinningBidderID();
+    int getWinningBidderID();
 }

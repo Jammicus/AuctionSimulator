@@ -97,6 +97,6 @@ public class AscendingTests {
         listOfBidders.add(bidderPrime);
         listOfBidders.add(bidderPrimePrime);
 
-        assertTrue(as.simulateAuction(listOfBidders,0).getPriceWinningBidderPays()==2000);
+        assertTrue(as.simulateAuction(listOfBidders, 0).getPriceWinningBidderPays() == 2000);
     }
 }
