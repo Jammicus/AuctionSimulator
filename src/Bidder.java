@@ -57,11 +57,11 @@ public class Bidder implements Comparable<Bidder> {
     }
 
     @Override
-    public String toString(){
-        return ""+getMoney()+"";
+    public String toString() {
+        return "" + getMoney() + "";
     }
 
-    public void printBidderDetails(){
+    public void printBidderDetails() {
         System.out.println("Bidder ID is:" + getId());
         System.out.println("Bidder money is: " + getMoney());
     }

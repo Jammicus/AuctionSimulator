@@ -9,10 +9,10 @@ public class SecondPrice implements Auction {
     private int bidderID;
 
 
-    public SecondPrice(){
+    public SecondPrice() {
     }
 
-    public SecondPrice(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays){
+    public SecondPrice(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays) {
         this.finalAuctionValue = finalAuctionValue;
         this.priceWinningBidderPays = priceWinningBidderPays;
         this.bidderID = winningBidder.getId();
@@ -25,7 +25,7 @@ public class SecondPrice implements Auction {
         Bidder winningBidder;
         Bidder.sortBiddersByMoneyAscending(bidders);
         winningBidder = (winnerDetermination(bidders, auctionValue));
-        return new SecondPrice(winningBidder,winningBidder.getMoney(),bidders.get(1).getMoney());
+        return new SecondPrice(winningBidder, winningBidder.getMoney(), bidders.get(1).getMoney());
     }
 
     @Override
@@ -51,7 +51,7 @@ public class SecondPrice implements Auction {
     @Override
     public void printAuctionResults() {
         System.out.println("The Final Auction Value is: " + getFinalAuctionValue());
-        System.out.println("The price the winning bidder pays is: "+ getPriceWinningBidderPays());
+        System.out.println("The price the winning bidder pays is: " + getPriceWinningBidderPays());
         System.out.println("THe winning bidders ID is: " + getWinningBidderID());
         System.out.println("The money the bidder came to the auction with is: " + getInitialBidderMoney());
     }
