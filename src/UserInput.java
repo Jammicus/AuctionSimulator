@@ -16,7 +16,7 @@ public class UserInput {
 
     public static void gatherUserInput() {
         Scanner scanner = new Scanner(System.in);
-        Initializer initializer = new Initializer();
+        Initializer initializer =  Initializer.getInstance();
 
         System.out.println("Please input the type of auction you would like to simulate");
         auctionType = scanner.nextLine();
