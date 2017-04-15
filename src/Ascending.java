@@ -2,31 +2,41 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class FirstPrice implements Auction {
 
+public class Ascending implements Auction {
     private double finalAuctionValue;
     private double priceWinningBidderPays;
     private double initialBidderMoney;
     private int bidderID;
 
-    public FirstPrice() {
-
+    public Ascending() {
     }
 
-    public FirstPrice(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays) {
+    public Ascending(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays) {
         this.finalAuctionValue = finalAuctionValue;
         this.priceWinningBidderPays = priceWinningBidderPays;
         this.bidderID = winningBidder.getId();
         this.initialBidderMoney = winningBidder.getMoney();
-
     }
 
     @Override
     public Auction simulateAuction(List<Bidder> bidders, double auctionValue) {
         Bidder winningBidder;
+        double auctionValueHolder = 0;
+
         Bidder.sortBiddersByMoneyAscending(bidders);
+
+        while (bidders.get(1).getMoney() >= auctionValue) {
+            auctionValueHolder = auctionValue;
+            auctionValue = biddingRules(auctionValue);
+        }
+
+        if (bidders.get(0).getMoney() < auctionValue) {
+            auctionValue = auctionValueHolder;
+        }
+
         winningBidder = (winnerDetermination(bidders, auctionValue));
-        return new FirstPrice(winningBidder, winningBidder.getMoney(), winningBidder.getMoney());
+        return new Ascending(winningBidder, auctionValue, auctionValue);
     }
 
     @Override
@@ -58,27 +68,38 @@ public class FirstPrice implements Auction {
     }
 
     private Bidder winnerDetermination(List<Bidder> bidders, double auctionValue) {
+
         if (bidders.size() < 2) {
             return bidders.get(0);
-        } else if (bidders.get(0).getMoney() == bidders.get(1).getMoney() && bidders.get(0).getMoney() >= auctionValue) {
-
-            return biddersWithEqualValues(bidders);
+        } else if (bidders.get(0).getMoney() >= auctionValue && bidders.get(1).getMoney() >= auctionValue) {
+            return biddersWithEqualValues(bidders, auctionValue);
         } else {
             return bidders.get(0);
         }
     }
 
-    private Bidder biddersWithEqualValues(List<Bidder> bidders) {
+    private Bidder biddersWithEqualValues(List<Bidder> bidders, double auctionValue) {
         List<Bidder> tieBreakBidders = new ArrayList<>();
         Random random = new Random();
-        double tieBreakValue = bidders.get(0).getMoney();
+
 
         for (int i = 0; i < bidders.size(); i++) {
-            if (bidders.get(i).getMoney() == tieBreakValue) {
+            if (bidders.get(i).getMoney() >= auctionValue) {
                 tieBreakBidders.add(bidders.get(i));
             }
         }
-
         return tieBreakBidders.get(random.nextInt(tieBreakBidders.size() - 1) + 0);
+    }
+
+    private double biddingRules(double auctionValue) {
+        if (auctionValue >= 1000) {
+            return auctionValue + 1000;
+        } else if (auctionValue >= 100) {
+            return auctionValue + 100;
+        } else if (auctionValue >= 10) {
+            return auctionValue + 10;
+        } else {
+            return auctionValue + 1;
+        }
     }
 }

@@ -1,14 +1,17 @@
 
-import java.util.ArrayList;
 import java.util.List;
 
-public interface Auction{
-     //To Store Auction Results
-     List<Auction> auctionResults = new ArrayList<>();
+public interface Auction {
 
-     //Return auction object with the relevant details???
-     Bidder simulateAuction(List<Bidder> bidders, double auctionValue);
-     //Think about Params here
+    Auction simulateAuction(List<Bidder> bidders, double auctionValue);
 
-     Auction setAuctionResults(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays);
+    double getPriceWinningBidderPays();
+
+    double getInitialBidderMoney();
+
+    int getWinningBidderID();
+
+    double getFinalAuctionValue();
+
+    void printAuctionResults();
 }

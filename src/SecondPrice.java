@@ -2,18 +2,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class FirstPrice implements Auction {
-
+public class SecondPrice implements Auction {
     private double finalAuctionValue;
     private double priceWinningBidderPays;
     private double initialBidderMoney;
     private int bidderID;
 
-    public FirstPrice() {
 
+    public SecondPrice() {
     }
 
-    public FirstPrice(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays) {
+    public SecondPrice(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays) {
         this.finalAuctionValue = finalAuctionValue;
         this.priceWinningBidderPays = priceWinningBidderPays;
         this.bidderID = winningBidder.getId();
@@ -26,7 +25,7 @@ public class FirstPrice implements Auction {
         Bidder winningBidder;
         Bidder.sortBiddersByMoneyAscending(bidders);
         winningBidder = (winnerDetermination(bidders, auctionValue));
-        return new FirstPrice(winningBidder, winningBidder.getMoney(), winningBidder.getMoney());
+        return new SecondPrice(winningBidder, winningBidder.getMoney(), bidders.get(1).getMoney());
     }
 
     @Override
@@ -81,4 +80,5 @@ public class FirstPrice implements Auction {
 
         return tieBreakBidders.get(random.nextInt(tieBreakBidders.size() - 1) + 0);
     }
+
 }
