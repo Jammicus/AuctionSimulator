@@ -83,4 +83,64 @@ public class DescendingTests {
 
         assertTrue(ds.simulateAuction(listOfBidders, 900).getPriceWinningBidderPays() == 200);
     }
+
+    @Test
+    public void bidderRuleLessThanTen() {
+        Auction ds = new Descending();
+        Bidder bidder = new Bidder(1, 9);
+        Bidder bidderPrime = new Bidder(2, 6);
+        Bidder bidderPrimePrime = new Bidder(3, 1);
+
+        List<Bidder> listOfBidders = new ArrayList<Bidder>();
+        listOfBidders.add(bidder);
+        listOfBidders.add(bidderPrime);
+        listOfBidders.add(bidderPrimePrime);
+
+        assertTrue(ds.simulateAuction(listOfBidders, 100).getPriceWinningBidderPays() == 9);
+    }
+
+    @Test
+    public void bidderRuleLessThanOneHundred() {
+        Auction ds = new Descending();
+        Bidder bidder = new Bidder(1, 90);
+        Bidder bidderPrime = new Bidder(2, 70);
+        Bidder bidderPrimePrime = new Bidder(3, 1);
+
+        List<Bidder> listOfBidders = new ArrayList<Bidder>();
+        listOfBidders.add(bidder);
+        listOfBidders.add(bidderPrime);
+        listOfBidders.add(bidderPrimePrime);
+
+        assertTrue(ds.simulateAuction(listOfBidders, 1000).getPriceWinningBidderPays() == 90);
+    }
+
+    @Test
+    public void bidderRuleLessThanOneThousand() {
+        Auction ds = new Descending();
+        Bidder bidder = new Bidder(1, 900);
+        Bidder bidderPrime = new Bidder(2, 500);
+        Bidder bidderPrimePrime = new Bidder(3, 1);
+
+        List<Bidder> listOfBidders = new ArrayList<Bidder>();
+        listOfBidders.add(bidder);
+        listOfBidders.add(bidderPrime);
+        listOfBidders.add(bidderPrimePrime);
+
+        assertTrue(ds.simulateAuction(listOfBidders, 10000).getPriceWinningBidderPays() == 900);
+    }
+
+    @Test
+    public void bidderRuleGreaterThanOneThousand() {
+        Auction ds = new Descending();
+        Bidder bidder = new Bidder(1, 9000);
+        Bidder bidderPrime = new Bidder(2, 5000);
+        Bidder bidderPrimePrime = new Bidder(3, 1);
+
+        List<Bidder> listOfBidders = new ArrayList<Bidder>();
+        listOfBidders.add(bidder);
+        listOfBidders.add(bidderPrime);
+        listOfBidders.add(bidderPrimePrime);
+
+        assertTrue(ds.simulateAuction(listOfBidders, 10000).getPriceWinningBidderPays() == 9000);
+    }
 }

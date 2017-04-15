@@ -44,7 +44,6 @@ public class Initializer {
         } else {
             System.out.println("Oh nooooo");
         }
-
     }
 
     private void storeAuctionResults(Auction auctionResults) {
