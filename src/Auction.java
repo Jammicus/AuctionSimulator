@@ -10,4 +10,8 @@ public interface Auction {
     double getInitialBidderMoney();
 
     int getWinningBidderID();
+
+    double getFinalAuctionValue();
+
+    void printAuctionResults();
 }
