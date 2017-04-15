@@ -1,12 +1,10 @@
 import org.junit.*;
 import org.junit.Test;
 
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 
 public class UserInputTests {
 
@@ -23,10 +21,9 @@ public class UserInputTests {
         System.setOut(oldOutput);
     }
 
-
     @Test
     public void incorrectNumberOfBiddersTest() {
-        //String auctionType, int numberOfBidders, double lowerBoundBidderValue, double upperBoundBidderValue
+
         UserInput.validateUserInput("Ascending", 1, 1.23, 100);
         assertTrue(outContent.toString().contains("Number of bidders needs to be greater than 1"));
     }

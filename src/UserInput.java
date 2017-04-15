@@ -33,6 +33,8 @@ public class UserInput {
         System.out.println("Validating your input, please wait.");
         validateUserInput(auctionType, numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue);
         System.out.println("Initializing simulation");
+
+        AuctionPreperation.prepareAuction();
     }
 
 
