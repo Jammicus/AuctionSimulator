@@ -34,7 +34,7 @@ public class UserInput {
         validateUserInput(auctionType, numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue);
         System.out.println("Initializing simulation");
 
-        AuctionPreperation.prepareAuction();
+        AuctionPreparation.prepareAuction();
     }
 
 
