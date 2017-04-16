@@ -4,6 +4,8 @@ import java.util.List;
 public class Initializer {
     //Uses singleton pattern
     private static Initializer initializer;
+    //Used to prevent wrong auction results being printed.
+    private static int auctionPivot = 0;
 
     private Initializer() {
 
@@ -22,33 +24,37 @@ public class Initializer {
     public void prepareAuction(String auctionType, int numberOfBidders, double lowerBoundBidderValue, double upperBoundBidderValue, int numberOfSimulations) {
 
         if (auctionType.equalsIgnoreCase("ascending")) {
-            for (int i = 0; i < numberOfSimulations;i++) {
+            for (int i = 0; i < numberOfSimulations; i++, auctionPivot++) {
+                System.out.println("Starting Ascending Auction");
                 Auction ascending = new Ascending();
                 initializer.storeAuctionResults(ascending.simulateAuction(Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue), 0));
                 System.out.println("Simulation Complete");
-                initializer.listOfResults.get(i).printAuctionResults();
+                initializer.listOfResults.get(auctionPivot).printAuctionResults();
             }
         } else if (auctionType.equalsIgnoreCase("descending")) {
-            for (int i = 0; i < numberOfSimulations;i++) {
+            for (int i = 0; i < numberOfSimulations; i++, auctionPivot++) {
+                System.out.println("Starting Descending Auction");
                 Auction descending = new Descending();
                 initializer.storeAuctionResults(descending.simulateAuction(Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue), upperBoundBidderValue * 2));
                 System.out.println("Simulation Complete");
-                initializer.listOfResults.get(i).printAuctionResults();
+                initializer.listOfResults.get(auctionPivot).printAuctionResults();
             }
         } else if (auctionType.equalsIgnoreCase("firstprice")) {
-            for (int i = 0; i < numberOfSimulations;i++) {
+            for (int i = 0; i < numberOfSimulations; i++, auctionPivot++) {
+                System.out.println("Starting First Price Auction");
                 Auction firstPrice = new FirstPrice();
                 initializer.storeAuctionResults(firstPrice.simulateAuction(Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue), 0));
                 System.out.println("Simulation Complete");
-                initializer.listOfResults.get(i).printAuctionResults();
+                initializer.listOfResults.get(auctionPivot).printAuctionResults();
             }
         } else if (auctionType.equalsIgnoreCase("secondprice")) {
-            for (int i = 0; i < numberOfSimulations; i++) {
-            Auction secondPrice = new SecondPrice();
-            initializer.storeAuctionResults(secondPrice.simulateAuction(Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue), 0));
-            System.out.println("Simulation Complete");
-            initializer.listOfResults.get(i).printAuctionResults();
-        }
+            for (int i = 0; i < numberOfSimulations; i++, auctionPivot++) {
+                System.out.println("Starting Second Price Auction");
+                Auction secondPrice = new SecondPrice();
+                initializer.storeAuctionResults(secondPrice.simulateAuction(Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue), 0));
+                System.out.println("Simulation Complete");
+                initializer.listOfResults.get(auctionPivot).printAuctionResults();
+            }
         } else {
             System.out.println("Oh nooooo");
         }
@@ -63,10 +69,11 @@ public class Initializer {
     }
 
     public void clearResults() {
+        auctionPivot=0;
         listOfResults.clear();
     }
 
-    public List<Auction> getResults(){
+    public List<Auction> getResults() {
         return listOfResults;
     }
 }

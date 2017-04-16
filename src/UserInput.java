@@ -9,7 +9,7 @@ public class UserInput {
     private static double lowerBoundBidderValue;
     private static double upperBoundBidderValue;
     private static int numberOfSimulations;
-
+    private static String runAnotherAuction;
 
     public static void main(String args[]) {
         gatherUserInput();
@@ -17,11 +17,10 @@ public class UserInput {
 
     public static void gatherUserInput() {
         Scanner scanner = new Scanner(System.in);
-        Initializer initializer =  Initializer.getInstance();
+        Initializer initializer = Initializer.getInstance();
 
         System.out.println("Please input the type of auction you would like to simulate");
         auctionType = scanner.nextLine();
-
 
         System.out.println("Please enter the number of bidders");
         numberOfBidders = scanner.nextInt();
@@ -39,9 +38,12 @@ public class UserInput {
         System.out.println("Validating your input, please wait.");
         auctionType = auctionType.replaceAll("\\s+", "");
         validateUserInput(auctionType, numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue, numberOfSimulations);
-        System.out.println("Initializing simulation");
 
         initializer.prepareAuction(auctionType, numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue, numberOfSimulations);
+
+        System.out.println("Would you like to simulate another auction?");
+        runAnotherAuction = scanner.next();
+        setRunAnotherAuction(runAnotherAuction);
     }
 
 
@@ -79,9 +81,27 @@ public class UserInput {
         }
     }
 
-    private static void validateNumberOfSimulations(int numberOfSimulations){
-        if (numberOfSimulations <1){
+    private static void validateNumberOfSimulations(int numberOfSimulations) {
+        if (numberOfSimulations < 1) {
             System.out.println("Number of simulations must be greater than 0");
         }
+    }
+
+    private static void setRunAnotherAuction(String yesOrNo) {
+        if (yesOrNo.equalsIgnoreCase("yes")) {
+            removePreviousUserInput();
+            gatherUserInput();
+        } else {
+            System.out.println("Thank you for using the simulator.");
+        }
+    }
+    // is this needed?
+    private static void removePreviousUserInput() {
+        auctionType = "";
+        numberOfBidders = 0;
+        lowerBoundBidderValue = 0;
+        upperBoundBidderValue = 0;
+        numberOfSimulations = 0;
+        runAnotherAuction = "";
     }
 }
