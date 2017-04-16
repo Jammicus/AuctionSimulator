@@ -1,0 +1,19 @@
+TO DO:
+
+Cover all possible cases for each of the Auctions before merging in to master
+
+Allow user input to determine:
+    What auction is run
+    Number of bidders
+    Money range for bidders
+    (Potentially refactor the simulate auction?)
+
+
+Find the Risk Adverseness Formula
+Allow mutiple simulations (Multi thread)
+Allow bidders values to change due to risk adverseness
+
+------
+JavaFX for realtime graph plotting?
+http://www.oracle.com/technetwork/java/javase/overview/javafx-overview-2158620.html
+
