@@ -24,45 +24,51 @@ public class UserInputTests {
     @Test
     public void incorrectNumberOfBiddersTest() {
 
-        UserInput.validateUserInput("Ascending", 1, 1.23, 100);
+        UserInput.validateUserInput("Ascending", 1, 1.23, 100, 1);
         assertTrue(outContent.toString().contains("Number of bidders needs to be greater than 1"));
     }
 
     @Test
     public void LowerBoundBidderMoneyBelowZeroTest() {
-        UserInput.validateUserInput("Ascending", 2, -1.234, 100);
+        UserInput.validateUserInput("Ascending", 2, -1.234, 100, 1);
         assertTrue(outContent.toString().contains("The lowest possible bidder value must be a positive number"));
     }
 
     @Test
     public void LowerBoundBidderMoneyAboveUpperBoundTest() {
-        UserInput.validateUserInput("Ascending", 2, 500, 100);
+        UserInput.validateUserInput("Ascending", 2, 500, 100, 1);
         assertTrue(outContent.toString().contains("The lowest possible bidder value must be lower than the highest possible bidder value"));
     }
 
     @Test
     public void incorrectAuctionType() {
-        UserInput.validateUserInput("", 2, 1.23, 100);
+        UserInput.validateUserInput("", 2, 1.23, 100, 1);
         assertTrue(outContent.toString().contains("Invalid auction type, possible auction types are 'first price'," +
                 "'second price', 'ascending' or 'descending'"));
     }
 
     @Test
     public void correctUserInputsTest() {
-        UserInput.validateUserInput("firstprice", 2, 1.23, 100);
+        UserInput.validateUserInput("firstprice", 2, 1.23, 100, 1);
         assertTrue(outContent.toString().contains("Inputted values validated"));
     }
 
     @Test
     public void assertSpacesAreRemovedFromAuctionType() {
-        UserInput.validateUserInput("first    price", 2, 1, 5);
+        UserInput.validateUserInput("first    price", 2, 1, 5, 1);
         assertTrue(outContent.toString().contains("Inputted values validated"));
     }
 
     @Test
     public void assertCapitalsAreIgnoredFromAuctionType() {
-        UserInput.validateUserInput("aSceNdInG", 2, 1, 5);
+        UserInput.validateUserInput("aSceNdInG", 2, 1, 5, 1);
         assertTrue(outContent.toString().contains("Inputted values validated"));
     }
 
+    @Test
+    public void numberOfSimulationsError() {
+        UserInput.validateUserInput("aSceNdInG", 2, 1, 5, 0);
+        assertTrue(outContent.toString().contains("Number of simulations must be greater than 0"));
+    }
 }
+
