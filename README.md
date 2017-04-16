@@ -1,5 +1,5 @@
-# AuctionSimulator
-Updated verison of my final year project.
+# Auction Simulator
+Updated version of my final year project.
 
 16/04/17
 You can now run auctions after your auction has finished, preventing you from having to re-load the application each time

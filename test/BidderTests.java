@@ -92,6 +92,4 @@ public class BidderTests {
             assertTrue(listOfBidders.get(i).getMoney() >= listOfBidders.get(i + 1).getMoney());
         }
     }
-
-
 }
