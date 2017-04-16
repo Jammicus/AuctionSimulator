@@ -69,7 +69,7 @@ public class Initializer {
     }
 
     public void clearResults() {
-        resultPointer =0;
+        resultPointer = 0;
         listOfResults.clear();
     }
 

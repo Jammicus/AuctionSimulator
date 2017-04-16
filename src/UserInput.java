@@ -95,6 +95,7 @@ public class UserInput {
             System.out.println("Thank you for using the simulator.");
         }
     }
+
     // is this needed?
     private static void removePreviousUserInput() {
         auctionType = "";
