@@ -53,7 +53,7 @@ public class FirstPrice implements Auction {
     public void printAuctionResults() {
         System.out.println("The Final Auction Value is: " + getFinalAuctionValue());
         System.out.println("The price the winning bidder pays is: " + getPriceWinningBidderPays());
-        System.out.println("THe winning bidders ID is: " + getWinningBidderID());
+        System.out.println("The winning bidders ID is: " + getWinningBidderID());
         System.out.println("The money the bidder came to the auction with is: " + getInitialBidderMoney());
     }
 

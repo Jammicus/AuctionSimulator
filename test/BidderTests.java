@@ -92,4 +92,11 @@ public class BidderTests {
             assertTrue(listOfBidders.get(i).getMoney() >= listOfBidders.get(i + 1).getMoney());
         }
     }
+
+    @Test
+    public void alterBiddersValuesByDegreeOfRisk() {
+        Bidder bidder = new Bidder();
+        List<Bidder> bidderList;
+        bidderList = bidder.createBidders(10, 0.0, 100.0);
+    }
 }
