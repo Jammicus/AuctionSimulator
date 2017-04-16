@@ -25,7 +25,7 @@ public class Initializer {
 
         if (auctionType.equalsIgnoreCase("ascending")) {
             for (int i = 0; i < numberOfSimulations; i++, resultPointer++) {
-                System.out.println("Starting Ascending Auction");
+                System.out.println("Starting Ascending Auction number #" + i);
                 Auction ascending = new Ascending();
                 initializer.storeAuctionResults(ascending.simulateAuction(Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue), 0));
                 System.out.println("Simulation Complete");
@@ -33,7 +33,7 @@ public class Initializer {
             }
         } else if (auctionType.equalsIgnoreCase("descending")) {
             for (int i = 0; i < numberOfSimulations; i++, resultPointer++) {
-                System.out.println("Starting Descending Auction");
+                System.out.println("Starting Descending Auction number #" + i);
                 Auction descending = new Descending();
                 initializer.storeAuctionResults(descending.simulateAuction(Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue), upperBoundBidderValue * 2));
                 System.out.println("Simulation Complete");
@@ -41,7 +41,7 @@ public class Initializer {
             }
         } else if (auctionType.equalsIgnoreCase("firstprice")) {
             for (int i = 0; i < numberOfSimulations; i++, resultPointer++) {
-                System.out.println("Starting First Price Auction");
+                System.out.println("Starting First Price Auction number #" + i);
                 Auction firstPrice = new FirstPrice();
                 initializer.storeAuctionResults(firstPrice.simulateAuction(Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue), 0));
                 System.out.println("Simulation Complete");
@@ -49,7 +49,7 @@ public class Initializer {
             }
         } else if (auctionType.equalsIgnoreCase("secondprice")) {
             for (int i = 0; i < numberOfSimulations; i++, resultPointer++) {
-                System.out.println("Starting Second Price Auction");
+                System.out.println("Starting Second Price Auction number #" + i);
                 Auction secondPrice = new SecondPrice();
                 initializer.storeAuctionResults(secondPrice.simulateAuction(Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue), 0));
                 System.out.println("Simulation Complete");
