@@ -52,7 +52,6 @@ public class Initializer {
         } else {
             System.out.println("Oh nooooo");
         }
-
     }
 
     private void storeAuctionResults(Auction auctionResults) {
@@ -65,5 +64,9 @@ public class Initializer {
 
     public void clearResults() {
         listOfResults.clear();
+    }
+
+    public List<Auction> getResults(){
+        return listOfResults;
     }
 }
