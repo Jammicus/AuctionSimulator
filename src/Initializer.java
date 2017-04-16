@@ -19,28 +19,36 @@ public class Initializer {
         return initializer;
     }
 
-    public void prepareAuction(String auctionType, int numberOfBidders, double lowerBoundBidderValue, double upperBoundBidderValue) {
+    public void prepareAuction(String auctionType, int numberOfBidders, double lowerBoundBidderValue, double upperBoundBidderValue, int numberOfSimulations) {
 
         if (auctionType.equalsIgnoreCase("ascending")) {
-            Auction ascending = new Ascending();
-            initializer.storeAuctionResults(ascending.simulateAuction(Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue), 0));
-            System.out.println("Simulation Complete");
-            initializer.listOfResults.get(0).printAuctionResults();
+            for (int i = 0; i < numberOfSimulations;i++) {
+                Auction ascending = new Ascending();
+                initializer.storeAuctionResults(ascending.simulateAuction(Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue), 0));
+                System.out.println("Simulation Complete");
+                initializer.listOfResults.get(i).printAuctionResults();
+            }
         } else if (auctionType.equalsIgnoreCase("descending")) {
-            Auction descending = new Descending();
-            initializer.storeAuctionResults(descending.simulateAuction(Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue), upperBoundBidderValue * 2));
-            System.out.println("Simulation Complete");
-            initializer.listOfResults.get(0).printAuctionResults();
+            for (int i = 0; i < numberOfSimulations;i++) {
+                Auction descending = new Descending();
+                initializer.storeAuctionResults(descending.simulateAuction(Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue), upperBoundBidderValue * 2));
+                System.out.println("Simulation Complete");
+                initializer.listOfResults.get(i).printAuctionResults();
+            }
         } else if (auctionType.equalsIgnoreCase("firstprice")) {
-            Auction firstPrice = new FirstPrice();
-            initializer.storeAuctionResults(firstPrice.simulateAuction(Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue), 0));
-            System.out.println("Simulation Complete");
-            initializer.listOfResults.get(0).printAuctionResults();
+            for (int i = 0; i < numberOfSimulations;i++) {
+                Auction firstPrice = new FirstPrice();
+                initializer.storeAuctionResults(firstPrice.simulateAuction(Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue), 0));
+                System.out.println("Simulation Complete");
+                initializer.listOfResults.get(i).printAuctionResults();
+            }
         } else if (auctionType.equalsIgnoreCase("secondprice")) {
+            for (int i = 0; i < numberOfSimulations; i++) {
             Auction secondPrice = new SecondPrice();
             initializer.storeAuctionResults(secondPrice.simulateAuction(Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue), 0));
             System.out.println("Simulation Complete");
-            initializer.listOfResults.get(0).printAuctionResults();
+            initializer.listOfResults.get(i).printAuctionResults();
+        }
         } else {
             System.out.println("Oh nooooo");
         }
