@@ -10,6 +10,7 @@ public class UserInput {
     private static double upperBoundBidderValue;
     private static int numberOfSimulations;
     private static String runAnotherAuction;
+    private static String calculateOptimalBiddingPoint;
 
     public static void main(String args[]) {
         gatherUserInput();
@@ -34,6 +35,9 @@ public class UserInput {
 
         System.out.println("How many simulations would you like?");
         numberOfSimulations = scanner.nextInt();
+
+        System.out.println("Would you like to calculate the optimal bidding point?");
+        calculateOptimalBiddingPoint = scanner.nextLine();
 
         System.out.println("Validating your input, please wait.");
         auctionType = auctionType.replaceAll("\\s+", "");
@@ -94,6 +98,9 @@ public class UserInput {
         } else {
             System.out.println("Thank you for using the simulator.");
         }
+    }
+
+    private static void setOptimalBiddingPoint(String yesOrNo) {
     }
 
     // is this needed?
