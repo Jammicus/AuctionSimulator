@@ -4,7 +4,7 @@ import java.util.List;
 public class Initializer {
 
     private static Initializer initializer;
-    //Used to prevent wrong auction results being printed.
+
     private static int resultPointer = 0;
 
     private Initializer() {
