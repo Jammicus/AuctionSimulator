@@ -22,8 +22,9 @@ public class Initializer {
     }
 
     public void prepareAuction(String auctionType, int numberOfBidders, double lowerBoundBidderValue, double upperBoundBidderValue, int numberOfSimulations) {
-        List<Bidder> listOfBidders = Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue);
 
+        List<Bidder> listOfBidders = Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue);
+//String auctionType, int numberOfBidders, double lowerBoundBidderValue, double upperBoundBidderValue, int numberOfSimulations
         if (auctionType.equalsIgnoreCase("ascending")) {
             for (int i = 0; i < numberOfSimulations; i++, resultPointer++) {
                 System.out.println("Starting Ascending Auction number #" + i);

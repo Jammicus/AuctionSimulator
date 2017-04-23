@@ -4,58 +4,101 @@ import java.util.Scanner;
 public class UserInput {
 
 
-    private static String auctionType;
-    private static int numberOfBidders;
-    private static double lowerBoundBidderValue;
-    private static double upperBoundBidderValue;
-    private static int numberOfSimulations;
-    private static String runAnotherAuction;
-    private static String calculateOptimalBiddingPoint;
+    private String auctionType;
+    private int numberOfBidders;
+    private double lowerBoundBidderValue;
+    private double upperBoundBidderValue;
+    private int numberOfSimulations;
+    private String runAnotherAuction;
+    private String calculateOptimalBiddingPoint;
+
+    public UserInput() {
+
+    }
+
+    //This constructor should only be used for testing purposes;
+    public UserInput(String auctionType, int numberOfBidders, double lowerBoundBidderValue, double upperBoundBidderValue, int numberOfSimulations) {
+        this.auctionType = auctionType;
+        this.numberOfBidders = numberOfBidders;
+        this.lowerBoundBidderValue = lowerBoundBidderValue;
+        this.upperBoundBidderValue = upperBoundBidderValue;
+        this.numberOfSimulations = numberOfSimulations;
+    }
+
+    public String getAuctionType() {
+        return auctionType;
+    }
+
+    public int getNumberOfBidders() {
+        return numberOfBidders;
+    }
+
+    public double getLowerBoundBidderValue() {
+        return lowerBoundBidderValue;
+    }
+
+    public double getUpperBoundBidderValue() {
+        return upperBoundBidderValue;
+    }
+
+    public int getNumberOfSimulations() {
+        return numberOfSimulations;
+    }
+
+    public String getRunAnotherAuction() {
+        return runAnotherAuction;
+    }
+
+    public String getCalculateOptimalBiddingPoint() {
+        return calculateOptimalBiddingPoint;
+    }
+
 
     public static void main(String args[]) {
         gatherUserInput();
     }
 
     public static void gatherUserInput() {
+        UserInput ui = new UserInput();
         Scanner scanner = new Scanner(System.in);
         Initializer initializer = Initializer.getInstance();
 
         System.out.println("Please input the type of auction you would like to simulate");
-        auctionType = scanner.nextLine();
+        ui.auctionType = scanner.nextLine();
 
         System.out.println("Please enter the number of bidders");
-        numberOfBidders = scanner.nextInt();
+        ui.numberOfBidders = scanner.nextInt();
         scanner.nextLine();
 
         System.out.println("What is the lowest possible value a bidder could have?");
-        lowerBoundBidderValue = scanner.nextDouble();
+        ui.lowerBoundBidderValue = scanner.nextDouble();
 
         System.out.println("What is the highest possible value a bidder could have?");
-        upperBoundBidderValue = scanner.nextDouble();
+        ui.upperBoundBidderValue = scanner.nextDouble();
 
         System.out.println("How many simulations would you like?");
-        numberOfSimulations = scanner.nextInt();
+        ui.numberOfSimulations = scanner.nextInt();
 
         System.out.println("Would you like to calculate the optimal bidding point?");
-        calculateOptimalBiddingPoint = scanner.nextLine();
+        ui.calculateOptimalBiddingPoint = scanner.nextLine();
 
         System.out.println("Validating your input, please wait.");
-        auctionType = auctionType.replaceAll("\\s+", "");
-        validateUserInput(auctionType, numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue, numberOfSimulations);
+        ui.auctionType = ui.auctionType.replaceAll("\\s+", "");
+        validateUserInput(ui);
 
-        initializer.prepareAuction(auctionType, numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue, numberOfSimulations);
+        initializer.prepareAuction(ui.getAuctionType(), ui.getNumberOfBidders(), ui.getLowerBoundBidderValue(), ui.getUpperBoundBidderValue(), ui.getNumberOfSimulations());
 
         System.out.println("Would you like to simulate another auction?");
-        runAnotherAuction = scanner.next();
-        setRunAnotherAuction(runAnotherAuction);
+        ui.runAnotherAuction = scanner.next();
+        ui.setRunAnotherAuction(ui.getRunAnotherAuction());
     }
 
-
-    public static void validateUserInput(String auctionType, int numberOfBidders, double lowerBoundBidderValue, double upperBoundBidderValue, int numberOfSimulations) {
-        validateAuctionType(auctionType);
-        validateNumberOfBidders((numberOfBidders));
-        validateBidderValueBounds(lowerBoundBidderValue, upperBoundBidderValue);
-        validateNumberOfSimulations(numberOfSimulations);
+    //too many parameters
+    public static void validateUserInput(UserInput userInput) {
+        validateAuctionType(userInput.getAuctionType());
+        validateNumberOfBidders(userInput.getNumberOfBidders());
+        validateBidderValueBounds(userInput.getLowerBoundBidderValue(), userInput.getUpperBoundBidderValue());
+        validateNumberOfSimulations(userInput.getNumberOfSimulations());
         System.out.println("Inputted values validated");
 
     }
@@ -93,7 +136,6 @@ public class UserInput {
 
     private static void setRunAnotherAuction(String yesOrNo) {
         if (yesOrNo.equalsIgnoreCase("yes")) {
-            removePreviousUserInput();
             gatherUserInput();
         } else {
             System.out.println("Thank you for using the simulator.");
@@ -101,15 +143,11 @@ public class UserInput {
     }
 
     private static void setOptimalBiddingPoint(String yesOrNo) {
+        if (yesOrNo.equalsIgnoreCase("yes")) {
+            //
+        } else {
+            System.out.println("The optimal bidding point will not be calculated");
+        }
     }
 
-    // is this needed?
-    private static void removePreviousUserInput() {
-        auctionType = "";
-        numberOfBidders = 0;
-        lowerBoundBidderValue = 0;
-        upperBoundBidderValue = 0;
-        numberOfSimulations = 0;
-        runAnotherAuction = "";
-    }
 }
