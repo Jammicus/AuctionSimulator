@@ -13,7 +13,6 @@ public class UserInput {
     private String calculateOptimalBiddingPoint;
 
     public UserInput() {
-
     }
 
     //This constructor should only be used for testing purposes;

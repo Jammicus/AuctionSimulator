@@ -49,6 +49,28 @@ public class SecondPrice implements Auction {
     }
 
     @Override
+    public Boolean isAuctionEfficient(Bidder winningBidder, List<Bidder> sortedListOfBiddersFromHighToLow) {
+        if (winningBidder.getId()== sortedListOfBiddersFromHighToLow.get(0).getId()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    @Override
+    public double calculateAuctionEfficiency(List<Boolean> highestBidderWonResults) {
+        double occurrencesOfTrue = 0;
+        for (int i = 0; i < highestBidderWonResults.size(); i++) {
+            if (highestBidderWonResults.get(i).equals(true)) {
+                occurrencesOfTrue++;
+                System.out.println("Yes");
+            }
+        }
+        return occurrencesOfTrue / (highestBidderWonResults.size());
+    }
+
+    @Override
     public void printAuctionResults() {
         System.out.println("The Final Auction Value is: " + getFinalAuctionValue());
         System.out.println("The price the winning bidder pays is: " + getPriceWinningBidderPays());

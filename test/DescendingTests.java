@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -142,5 +143,20 @@ public class DescendingTests {
         listOfBidders.add(bidderPrimePrime);
 
         assertTrue(ds.simulateAuction(listOfBidders, 10000).getPriceWinningBidderPays() == 9000);
+    }
+
+    @Test
+    public void calculateAuctionEfficiencyTest(){
+        Auction as = new Ascending();
+        List<Boolean> listOfResults = new ArrayList<>();
+        listOfResults.add(true);
+        listOfResults.add(true);
+        listOfResults.add(true);
+        listOfResults.add(false);
+        listOfResults.add(false);
+        listOfResults.add(false);
+
+        assertEquals(0.5,as.calculateAuctionEfficiency(listOfResults));
+
     }
 }

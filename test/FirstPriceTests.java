@@ -101,4 +101,15 @@ public class FirstPriceTests {
 
         assertTrue(fp.simulateAuction(listOfBidders, 100).getPriceWinningBidderPays() == bidder.getMoney());
     }
+    @Test
+    public void calculateAuctionEfficiencyTest(){
+        Auction as = new Ascending();
+        List<Boolean> listOfResults = new ArrayList<>();
+        listOfResults.add(true);
+        listOfResults.add(false);
+
+        assertEquals(0.5,as.calculateAuctionEfficiency(listOfResults));
+
+    }
+
 }
