@@ -16,7 +16,7 @@ public interface Auction {
     boolean getWhetherAuctionWasEfficient();
 
     default Boolean isAuctionEfficient(Bidder winningBidder, List<Bidder> sortedListOfBiddersFromHighToLow) {
-        if (winningBidder.getId() == sortedListOfBiddersFromHighToLow.get(0).getId()) {
+        if (winningBidder.getMoney() == sortedListOfBiddersFromHighToLow.get(0).getMoney()) {
             return true;
         } else {
             return false;
