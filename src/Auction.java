@@ -1,5 +1,4 @@
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface Auction {
@@ -14,10 +13,25 @@ public interface Auction {
 
     double getFinalAuctionValue();
 
-    //split into another interface?
-    Boolean isAuctionEfficient(Bidder winningBidder, List<Bidder> sortedListOfBiddersFromHighToLow);
+    default Boolean isAuctionEfficient(Bidder winningBidder, List<Bidder> sortedListOfBiddersFromHighToLow){
+        if (winningBidder.getId()== sortedListOfBiddersFromHighToLow.get(0).getId()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    };
 
-    double calculateAuctionEfficiency(List<Boolean>highestBidderWonResults);
+    default double calculateAuctionEfficiency(List<Boolean> highestBidderWonResults){
+        double occurrencesOfTrue = 0;
+        for (int i = 0; i < highestBidderWonResults.size(); i++) {
+            if (highestBidderWonResults.get(i).equals(true)) {
+                occurrencesOfTrue++;
+                System.out.println("Yes");
+            }
+        }
+        return occurrencesOfTrue / (highestBidderWonResults.size());
+    }
 
     void printAuctionResults();
 }
