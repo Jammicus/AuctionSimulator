@@ -12,7 +12,7 @@ public class InitializerTests {
         initializer.prepareAuction(ui);
         initializer.prepareAuction(ui);
         assertEquals(2, initializer.getNumberOfResults());
-        initializer.clearResults();
+        initializer.clearAuctionHistory();
     }
 
     @Test
@@ -24,7 +24,7 @@ public class InitializerTests {
         initializer.prepareAuction(ui);
         initializer.prepareAuction(ui);
         assertEquals(4, initializer.getNumberOfResults());
-        initializer.clearResults();
+        initializer.clearAuctionHistory();
     }
 
     @Test
@@ -33,7 +33,7 @@ public class InitializerTests {
         Initializer initializer = Initializer.getInstance();
         initializer.prepareAuction(ui);
         assertEquals(1, initializer.getNumberOfResults());
-        initializer.clearResults();
+        initializer.clearAuctionHistory();
     }
 
     @Test
@@ -44,7 +44,7 @@ public class InitializerTests {
         initializer.prepareAuction(ui);
         initializer.prepareAuction(ui);
         assertEquals(3, initializer.getNumberOfResults());
-        initializer.clearResults();
+        initializer.clearAuctionHistory();
     }
 
 

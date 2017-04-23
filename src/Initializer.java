@@ -72,7 +72,7 @@ public class Initializer {
         return listOfResults.size();
     }
 
-    public void clearResults() {
+    public void clearAuctionHistory() {
         resultPointer = 0;
         listOfResults.clear();
     }
