@@ -84,7 +84,7 @@ public class UserInput {
 
         System.out.println("Validating your input, please wait.");
         ui.auctionType = ui.auctionType.replaceAll("\\s+", "");
-        validateUserInput(ui);
+        ui.validateUserInput();
 
         initializer.prepareAuction(ui.getAuctionType(), ui.getNumberOfBidders(), ui.getLowerBoundBidderValue(), ui.getUpperBoundBidderValue(), ui.getNumberOfSimulations());
 
@@ -93,17 +93,15 @@ public class UserInput {
         ui.setRunAnotherAuction(ui.getRunAnotherAuction());
     }
 
-    //too many parameters
-    public static void validateUserInput(UserInput userInput) {
-        validateAuctionType(userInput.getAuctionType());
-        validateNumberOfBidders(userInput.getNumberOfBidders());
-        validateBidderValueBounds(userInput.getLowerBoundBidderValue(), userInput.getUpperBoundBidderValue());
-        validateNumberOfSimulations(userInput.getNumberOfSimulations());
+    public void validateUserInput() {
+        validateAuctionType(getAuctionType());
+        validateNumberOfBidders(getNumberOfBidders());
+        validateBidderValueBounds(getLowerBoundBidderValue(), getUpperBoundBidderValue());
+        validateNumberOfSimulations(getNumberOfSimulations());
         System.out.println("Inputted values validated");
-
     }
 
-    private static void validateAuctionType(String auctionType) {
+    private void validateAuctionType(String auctionType) {
 
         if (!auctionType.equalsIgnoreCase("firstprice") &&
                 (!auctionType.equalsIgnoreCase("secondprice") &&
@@ -114,13 +112,13 @@ public class UserInput {
         }
     }
 
-    private static void validateNumberOfBidders(int numberOfBidders) {
+    private void validateNumberOfBidders(int numberOfBidders) {
         if (numberOfBidders < 2) {
             System.out.println("Number of bidders needs to be greater than 1");
         }
     }
 
-    private static void validateBidderValueBounds(double lowerBoundBidderValue, double upperBoundBidderValue) {
+    private void validateBidderValueBounds(double lowerBoundBidderValue, double upperBoundBidderValue) {
         if (lowerBoundBidderValue > upperBoundBidderValue) {
             System.out.println("The lowest possible bidder value must be lower than the highest possible bidder value");
         } else if (lowerBoundBidderValue < 0) {
@@ -128,13 +126,13 @@ public class UserInput {
         }
     }
 
-    private static void validateNumberOfSimulations(int numberOfSimulations) {
+    private void validateNumberOfSimulations(int numberOfSimulations) {
         if (numberOfSimulations < 1) {
             System.out.println("Number of simulations must be greater than 0");
         }
     }
 
-    private static void setRunAnotherAuction(String yesOrNo) {
+    private void setRunAnotherAuction(String yesOrNo) {
         if (yesOrNo.equalsIgnoreCase("yes")) {
             gatherUserInput();
         } else {
@@ -142,7 +140,7 @@ public class UserInput {
         }
     }
 
-    private static void setOptimalBiddingPoint(String yesOrNo) {
+    private void setOptimalBiddingPoint(String yesOrNo) {
         if (yesOrNo.equalsIgnoreCase("yes")) {
             //
         } else {
