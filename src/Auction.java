@@ -13,21 +13,22 @@ public interface Auction {
 
     double getFinalAuctionValue();
 
-    default Boolean isAuctionEfficient(Bidder winningBidder, List<Bidder> sortedListOfBiddersFromHighToLow){
-        if (winningBidder.getId()== sortedListOfBiddersFromHighToLow.get(0).getId()){
+    boolean getWhetherAuctionWasEfficient();
+
+    default Boolean isAuctionEfficient(Bidder winningBidder, List<Bidder> sortedListOfBiddersFromHighToLow) {
+        if (winningBidder.getId() == sortedListOfBiddersFromHighToLow.get(0).getId()) {
             return true;
-        }
-        else{
+        } else {
             return false;
         }
-    };
+    }
 
-    default double calculateAuctionEfficiency(List<Boolean> highestBidderWonResults){
+    //Move this to a class that produces stats on the auction.
+    default double calculateAuctionEfficiency(List<Boolean> highestBidderWonResults) {
         double occurrencesOfTrue = 0;
         for (int i = 0; i < highestBidderWonResults.size(); i++) {
             if (highestBidderWonResults.get(i).equals(true)) {
                 occurrencesOfTrue++;
-                System.out.println("Yes");
             }
         }
         return occurrencesOfTrue / (highestBidderWonResults.size());

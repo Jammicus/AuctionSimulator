@@ -112,4 +112,19 @@ public class FirstPriceTests {
 
     }
 
+    @Test
+    public void auctionWasEfficient() {
+        Auction fp = new FirstPrice();
+        Bidder bidder = new Bidder(1, 175);
+        Bidder bidderPrime = new Bidder(2, 125);
+        Bidder bidderPrimePrime = new Bidder(3, 100);
+
+        List<Bidder> listOfBidders = new ArrayList<Bidder>();
+        listOfBidders.add(bidder);
+        listOfBidders.add(bidderPrime);
+        listOfBidders.add(bidderPrimePrime);
+
+        assertTrue(fp.simulateAuction(listOfBidders, 100).getWhetherAuctionWasEfficient() == true);
+    }
+
 }

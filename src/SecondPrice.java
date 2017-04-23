@@ -7,16 +7,17 @@ public class SecondPrice implements Auction {
     private double priceWinningBidderPays;
     private double initialBidderMoney;
     private int bidderID;
-
+    private boolean auctionEfficient;
 
     public SecondPrice() {
     }
 
-    public SecondPrice(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays) {
+    public SecondPrice(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays, boolean auctionEfficient) {
         this.finalAuctionValue = finalAuctionValue;
         this.priceWinningBidderPays = priceWinningBidderPays;
         this.bidderID = winningBidder.getId();
         this.initialBidderMoney = winningBidder.getMoney();
+        this.auctionEfficient = auctionEfficient;
 
     }
 
@@ -25,7 +26,8 @@ public class SecondPrice implements Auction {
         Bidder winningBidder;
         Bidder.sortBiddersByMoneyAscending(bidders);
         winningBidder = (winnerDetermination(bidders, auctionValue));
-        return new SecondPrice(winningBidder, winningBidder.getMoney(), bidders.get(1).getMoney());
+        auctionEfficient = isAuctionEfficient(winningBidder, bidders);
+        return new SecondPrice(winningBidder, winningBidder.getMoney(), bidders.get(1).getMoney(), auctionEfficient);
     }
 
     @Override
@@ -46,6 +48,11 @@ public class SecondPrice implements Auction {
     @Override
     public double getFinalAuctionValue() {
         return finalAuctionValue;
+    }
+
+    @Override
+    public boolean getWhetherAuctionWasEfficient() {
+        return auctionEfficient;
     }
 
 

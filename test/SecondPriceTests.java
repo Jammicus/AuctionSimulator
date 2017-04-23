@@ -97,11 +97,22 @@ public class SecondPriceTests {
         listOfResults.add(true);
         listOfResults.add(false);
 
-
-
-
-
         assertEquals(0.8,as.calculateAuctionEfficiency(listOfResults));
 
+    }
+
+    @Test
+    public void auctionWasEfficient() {
+        Auction sp = new SecondPrice();
+        Bidder bidder = new Bidder(1, 175);
+        Bidder bidderPrime = new Bidder(2, 125);
+        Bidder bidderPrimePrime = new Bidder(3, 100);
+
+        List<Bidder> listOfBidders = new ArrayList<Bidder>();
+        listOfBidders.add(bidder);
+        listOfBidders.add(bidderPrime);
+        listOfBidders.add(bidderPrimePrime);
+
+        assertTrue(sp.simulateAuction(listOfBidders, 100).getWhetherAuctionWasEfficient() == true);
     }
 }

@@ -8,16 +8,18 @@ public class FirstPrice implements Auction {
     private double priceWinningBidderPays;
     private double initialBidderMoney;
     private int bidderID;
+    private boolean auctionEfficient;
 
     public FirstPrice() {
 
     }
 
-    public FirstPrice(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays) {
+    public FirstPrice(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays, boolean auctionEfficient) {
         this.finalAuctionValue = finalAuctionValue;
         this.priceWinningBidderPays = priceWinningBidderPays;
         this.bidderID = winningBidder.getId();
         this.initialBidderMoney = winningBidder.getMoney();
+        this.auctionEfficient = auctionEfficient;
 
     }
 
@@ -26,7 +28,8 @@ public class FirstPrice implements Auction {
         Bidder winningBidder;
         Bidder.sortBiddersByMoneyAscending(bidders);
         winningBidder = (winnerDetermination(bidders, auctionValue));
-        return new FirstPrice(winningBidder, winningBidder.getMoney(), winningBidder.getMoney());
+        auctionEfficient = isAuctionEfficient(winningBidder, bidders);
+        return new FirstPrice(winningBidder, winningBidder.getMoney(), winningBidder.getMoney(), auctionEfficient);
     }
 
     @Override
@@ -47,6 +50,11 @@ public class FirstPrice implements Auction {
     @Override
     public double getFinalAuctionValue() {
         return finalAuctionValue;
+    }
+
+    @Override
+    public boolean getWhetherAuctionWasEfficient() {
+        return auctionEfficient;
     }
 
     @Override

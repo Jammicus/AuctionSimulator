@@ -8,15 +8,17 @@ public class Ascending implements Auction {
     private double priceWinningBidderPays;
     private double initialBidderMoney;
     private int bidderID;
+    private boolean auctionEfficient;
 
     public Ascending() {
     }
 
-    public Ascending(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays) {
+    public Ascending(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays, boolean auctionEfficient) {
         this.finalAuctionValue = finalAuctionValue;
         this.priceWinningBidderPays = priceWinningBidderPays;
         this.bidderID = winningBidder.getId();
         this.initialBidderMoney = winningBidder.getMoney();
+        this.auctionEfficient = auctionEfficient;
     }
 
     @Override
@@ -36,7 +38,8 @@ public class Ascending implements Auction {
         }
 
         winningBidder = (winnerDetermination(bidders, auctionValue));
-        return new Ascending(winningBidder, auctionValue, auctionValue);
+        auctionEfficient = isAuctionEfficient(winningBidder, bidders);
+        return new Ascending(winningBidder, auctionValue, auctionValue, auctionEfficient);
     }
 
     @Override
@@ -59,7 +62,10 @@ public class Ascending implements Auction {
         return finalAuctionValue;
     }
 
-
+    @Override
+    public boolean getWhetherAuctionWasEfficient() {
+        return auctionEfficient;
+    }
 
     @Override
     public void printAuctionResults() {

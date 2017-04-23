@@ -8,15 +8,18 @@ public class Descending implements Auction {
     private double priceWinningBidderPays;
     private double initialBidderMoney;
     private int bidderID;
+    private boolean auctionEfficient;
 
     public Descending() {
     }
 
-    public Descending(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays) {
+    public Descending(Bidder winningBidder, double finalAuctionValue, double priceWinningBidderPays, boolean auctionEfficient) {
         this.finalAuctionValue = finalAuctionValue;
         this.priceWinningBidderPays = priceWinningBidderPays;
         this.bidderID = winningBidder.getId();
         this.initialBidderMoney = winningBidder.getMoney();
+        this.auctionEfficient =auctionEfficient;
+
     }
 
     @Override
@@ -29,7 +32,8 @@ public class Descending implements Auction {
         }
 
         winningBidder = (winnerDetermination(bidders, auctionValue));
-        return new Descending(winningBidder, auctionValue, auctionValue);
+        auctionEfficient = isAuctionEfficient(winningBidder, bidders);
+        return new Descending(winningBidder, auctionValue, auctionValue,auctionEfficient);
     }
 
     @Override
@@ -50,6 +54,11 @@ public class Descending implements Auction {
     @Override
     public double getFinalAuctionValue() {
         return finalAuctionValue;
+    }
+
+    @Override
+    public boolean getWhetherAuctionWasEfficient() {
+        return auctionEfficient;
     }
 
 
@@ -82,7 +91,6 @@ public class Descending implements Auction {
                 tieBreakBidders.add(bidders.get(i));
             }
         }
-
         return tieBreakBidders.get(random.nextInt(tieBreakBidders.size() - 1) + 0);
     }
 

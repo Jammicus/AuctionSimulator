@@ -159,4 +159,19 @@ public class DescendingTests {
         assertEquals(0.5,as.calculateAuctionEfficiency(listOfResults));
 
     }
+
+    @Test
+    public void auctionWasEfficient() {
+        Auction ds = new Descending();
+        Bidder bidder = new Bidder(1, 9123);
+        Bidder bidderPrime = new Bidder(2, 5000);
+        Bidder bidderPrimePrime = new Bidder(3, 1);
+
+        List<Bidder> listOfBidders = new ArrayList<Bidder>();
+        listOfBidders.add(bidder);
+        listOfBidders.add(bidderPrime);
+        listOfBidders.add(bidderPrimePrime);
+
+        assertTrue(ds.simulateAuction(listOfBidders, 10000).getWhetherAuctionWasEfficient() == true);
+    }
 }
