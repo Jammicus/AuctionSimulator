@@ -149,5 +149,4 @@ public class UserInput {
             System.out.println("The optimal bidding point will not be calculated");
         }
     }
-
 }
