@@ -21,39 +21,38 @@ public class Initializer {
         return initializer;
     }
 
-    public void prepareAuction(String auctionType, int numberOfBidders, double lowerBoundBidderValue, double upperBoundBidderValue, int numberOfSimulations) {
-
-        List<Bidder> listOfBidders = new ArrayList<>();
-        if (auctionType.equalsIgnoreCase("ascending")) {
-            for (int i = 0; i < numberOfSimulations; i++, resultPointer++) {
-                listOfBidders = Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue);
+    public void prepareAuction(UserInput userInput) {
+        List<Bidder> listOfBidders;
+        if (userInput.getAuctionType().equalsIgnoreCase("ascending")) {
+            for (int i = 0; i < userInput.getNumberOfSimulations(); i++, resultPointer++) {
+                listOfBidders = Bidder.createBidders(userInput.getNumberOfBidders(), userInput.getLowerBoundBidderValue(), userInput.getUpperBoundBidderValue());
                 System.out.println("Starting Ascending Auction number #" + i);
                 Auction ascending = new Ascending();
                 storeAuctionResults(ascending.simulateAuction(listOfBidders, 0));
                 System.out.println("Simulation Complete");
                 listOfResults.get(resultPointer).printAuctionResults();
             }
-        } else if (auctionType.equalsIgnoreCase("descending")) {
-            for (int i = 0; i < numberOfSimulations; i++, resultPointer++) {
-                listOfBidders = Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue);
+        } else if (userInput.getAuctionType().equalsIgnoreCase("descending")) {
+            for (int i = 0; i < userInput.getNumberOfSimulations(); i++, resultPointer++) {
+                listOfBidders = Bidder.createBidders(userInput.getNumberOfBidders(), userInput.getLowerBoundBidderValue(), userInput.getUpperBoundBidderValue());
                 System.out.println("Starting Descending Auction number #" + i);
                 Auction descending = new Descending();
-                storeAuctionResults(descending.simulateAuction(listOfBidders, upperBoundBidderValue * 2));
+                storeAuctionResults(descending.simulateAuction(listOfBidders, userInput.getUpperBoundBidderValue() * 2));
                 System.out.println("Simulation Complete");
                 listOfResults.get(resultPointer).printAuctionResults();
             }
-        } else if (auctionType.equalsIgnoreCase("firstprice")) {
-            for (int i = 0; i < numberOfSimulations; i++, resultPointer++) {
-                listOfBidders = Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue);
+        } else if (userInput.getAuctionType().equalsIgnoreCase("firstprice")) {
+            for (int i = 0; i < userInput.getNumberOfSimulations(); i++, resultPointer++) {
+                listOfBidders = Bidder.createBidders(userInput.getNumberOfBidders(), userInput.getLowerBoundBidderValue(), userInput.getUpperBoundBidderValue());
                 System.out.println("Starting First Price Auction number #" + i);
                 Auction firstPrice = new FirstPrice();
                 storeAuctionResults(firstPrice.simulateAuction(listOfBidders, 0));
                 System.out.println("Simulation Complete");
                 listOfResults.get(resultPointer).printAuctionResults();
             }
-        } else if (auctionType.equalsIgnoreCase("secondprice")) {
-            for (int i = 0; i < numberOfSimulations; i++, resultPointer++) {
-                listOfBidders = Bidder.createBidders(numberOfBidders, lowerBoundBidderValue, upperBoundBidderValue);
+        } else if (userInput.getAuctionType().equalsIgnoreCase("secondprice")) {
+            for (int i = 0; i < userInput.getNumberOfSimulations(); i++, resultPointer++) {
+                listOfBidders = Bidder.createBidders(userInput.getNumberOfBidders(), userInput.getLowerBoundBidderValue(), userInput.getUpperBoundBidderValue());
                 System.out.println("Starting Second Price Auction number #" + i);
                 Auction secondPrice = new SecondPrice();
                 storeAuctionResults(secondPrice.simulateAuction(listOfBidders, 0));

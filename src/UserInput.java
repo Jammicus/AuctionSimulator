@@ -86,7 +86,7 @@ public class UserInput {
         ui.auctionType = ui.auctionType.replaceAll("\\s+", "");
         ui.validateUserInput();
 
-        initializer.prepareAuction(ui.getAuctionType(), ui.getNumberOfBidders(), ui.getLowerBoundBidderValue(), ui.getUpperBoundBidderValue(), ui.getNumberOfSimulations());
+        initializer.prepareAuction(ui);
 
         System.out.println("Would you like to simulate another auction?");
         ui.runAnotherAuction = scanner.next();
