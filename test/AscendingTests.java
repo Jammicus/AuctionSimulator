@@ -144,23 +144,6 @@ public class AscendingTests {
     }
 
     @Test
-    public void calculateAuctionEfficiencyTest(){
-        Auction as = new Ascending();
-        List<Boolean> listOfResults = new ArrayList<>();
-        listOfResults.add(true);
-        listOfResults.add(true);
-        listOfResults.add(true);
-        listOfResults.add(true);
-        listOfResults.add(false);
-        listOfResults.add(false);
-        listOfResults.add(false);
-        listOfResults.add(false);
-
-        assertEquals(0.5,as.calculateAuctionEfficiency(listOfResults));
-
-    }
-
-    @Test
     public void auctionWasEfficient(){
         Auction as = new Ascending();
         Bidder bidder = new Bidder(1, 9000);

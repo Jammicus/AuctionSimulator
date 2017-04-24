@@ -87,19 +87,6 @@ public class SecondPriceTests {
         assertTrue(sp.simulateAuction(listOfBidders, 100).getPriceWinningBidderPays() == bidderPrime.getMoney());
     }
 
-    @Test
-    public void calculateAuctionEfficiencyTest(){
-        Auction as = new Ascending();
-        List<Boolean> listOfResults = new ArrayList<>();
-        listOfResults.add(true);
-        listOfResults.add(true);
-        listOfResults.add(true);
-        listOfResults.add(true);
-        listOfResults.add(false);
-
-        assertEquals(0.8,as.calculateAuctionEfficiency(listOfResults));
-
-    }
 
     @Test
     public void auctionWasEfficient() {

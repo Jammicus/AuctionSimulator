@@ -22,17 +22,6 @@ public interface Auction {
             return false;
         }
     }
-
-    //Move this to a class that produces stats on the auction.
-    default double calculateAuctionEfficiency(List<Boolean> highestBidderWonResults) {
-        double occurrencesOfTrue = 0;
-        for (int i = 0; i < highestBidderWonResults.size(); i++) {
-            if (highestBidderWonResults.get(i).equals(true)) {
-                occurrencesOfTrue++;
-            }
-        }
-        return occurrencesOfTrue / (highestBidderWonResults.size());
-    }
-
+    
     void printAuctionResults();
 }

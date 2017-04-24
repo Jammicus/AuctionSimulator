@@ -145,20 +145,6 @@ public class DescendingTests {
         assertTrue(ds.simulateAuction(listOfBidders, 10000).getPriceWinningBidderPays() == 9000);
     }
 
-    @Test
-    public void calculateAuctionEfficiencyTest(){
-        Auction as = new Ascending();
-        List<Boolean> listOfResults = new ArrayList<>();
-        listOfResults.add(true);
-        listOfResults.add(true);
-        listOfResults.add(true);
-        listOfResults.add(false);
-        listOfResults.add(false);
-        listOfResults.add(false);
-
-        assertEquals(0.5,as.calculateAuctionEfficiency(listOfResults));
-
-    }
 
     @Test
     public void auctionWasEfficient() {
