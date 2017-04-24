@@ -47,6 +47,7 @@ public class Bidder implements Comparable<Bidder> {
         return bidders;
     }
 
+    @Override
     public int compareTo(Bidder bidder) {
         if (this.money < bidder.getMoney()) {
             return 1;

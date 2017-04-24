@@ -18,7 +18,6 @@ public class SecondPrice implements Auction {
         this.bidderID = winningBidder.getId();
         this.initialBidderMoney = winningBidder.getMoney();
         this.auctionEfficient = auctionEfficient;
-
     }
 
     @Override
