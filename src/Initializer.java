@@ -7,6 +7,7 @@ public class Initializer {
 
     private static int resultPointer = 0;
 
+
     private Initializer() {
 
     }

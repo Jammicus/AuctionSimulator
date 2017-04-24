@@ -138,7 +138,7 @@ public class UserInput {
             System.out.println("Thank you for using the simulator.");
         }
     }
-    
+
     private void setOptimalBiddingPoint(String yesOrNo) {
         if (yesOrNo.equalsIgnoreCase("yes")) {
             //

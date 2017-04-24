@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.Assert.assertEquals;
 
 
-public class InitializerTests {
+public class AuctioneerTests {
 
     @Test
     public void auctionResultsStoredCorrectListAscending() {

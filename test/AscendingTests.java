@@ -52,23 +52,6 @@ public class AscendingTests {
         assertFalse(as.simulateAuction(listOfBidders, 0).getWinningBidderID() == bidderPrime.getId());
     }
 
-    @Test
-    public void tieBreakAscending() {
-        Auction as = new Ascending();
-        Bidder bidder = new Bidder(1, 200);
-        Bidder bidderPrime = new Bidder(2, 200);
-        Bidder bidderPrimePrime = new Bidder(3, 100);
-        Bidder bidderPrimePrimePrime = new Bidder(4, 125);
-
-        List<Bidder> listOfBidders = new ArrayList<Bidder>();
-        listOfBidders.add(bidder);
-        listOfBidders.add(bidderPrime);
-        listOfBidders.add(bidderPrimePrime);
-        listOfBidders.add(bidderPrimePrimePrime);
-
-        assertTrue((as.simulateAuction(listOfBidders, 0).getWinningBidderID() == bidder.getId())
-                || as.simulateAuction(listOfBidders, 0).getWinningBidderID() == bidderPrime.getId());
-    }
 
     @Test
     public void correctPriceWinningBidderPaysAscending() {
@@ -84,7 +67,6 @@ public class AscendingTests {
 
         assertTrue(as.simulateAuction(listOfBidders, 0).getPriceWinningBidderPays() == 6);
     }
-
 
     @Test
     public void correctPriceWithTieBreakAscending() {
@@ -192,7 +174,5 @@ public class AscendingTests {
 
         assertTrue(as.simulateAuction(listOfBidders, 0).getWhetherAuctionWasEfficient() == true);
     }
-
-
 }
 
