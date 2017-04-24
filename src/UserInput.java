@@ -60,7 +60,7 @@ public class UserInput {
     public static void gatherUserInput() {
         UserInput ui = new UserInput();
         Scanner scanner = new Scanner(System.in);
-        Initializer initializer = Initializer.getInstance();
+        Auctioneer auctioneer = Auctioneer.getInstance();
 
         System.out.println("Please input the type of auction you would like to simulate");
         ui.auctionType = scanner.nextLine();
@@ -85,7 +85,7 @@ public class UserInput {
         ui.auctionType = ui.auctionType.replaceAll("\\s+", "");
         ui.validateUserInput();
 
-        initializer.prepareAuction(ui);
+        auctioneer.prepareAuction(ui);
 
         System.out.println("Would you like to simulate another auction?");
         ui.runAnotherAuction = scanner.next();

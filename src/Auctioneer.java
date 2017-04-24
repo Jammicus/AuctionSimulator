@@ -1,25 +1,25 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Initializer {
+public class Auctioneer {
 
-    private static Initializer initializer;
+    private static Auctioneer auctioneer;
 
     private static int resultPointer = 0;
 
 
-    private Initializer() {
+    private Auctioneer() {
 
     }
 
     private List<Auction> listOfResults = new ArrayList<>();
 
     static {
-        initializer = new Initializer();
+        auctioneer = new Auctioneer();
     }
 
-    public static Initializer getInstance() {
-        return initializer;
+    public static Auctioneer getInstance() {
+        return auctioneer;
     }
 
     public void prepareAuction(UserInput userInput) {
