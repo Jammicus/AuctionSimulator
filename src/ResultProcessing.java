@@ -8,16 +8,16 @@ public class ResultProcessing {
     Calculate error bars?
      */
 
-    public double calculateAuctionEfficiency(List<Boolean> highestBidderWonResults) {
+    public double calculateAuctionEfficiency(List<Auction> highestBidderWonResults) {
         double occurrencesOfTrue = 0;
 
         for (int i = 0; i < highestBidderWonResults.size(); i++) {
-            if (highestBidderWonResults.get(i).equals(true)) {
+            if (highestBidderWonResults.get(i).getWhetherAuctionWasEfficient()==true) {
                 occurrencesOfTrue++;
             }
         }
 
-        return occurrencesOfTrue / (highestBidderWonResults.size());
+        return occurrencesOfTrue / (highestBidderWonResults.size()) * 100;
     }
 
     public double calculateAverageWinningBid(List<Auction> winningBidders) {

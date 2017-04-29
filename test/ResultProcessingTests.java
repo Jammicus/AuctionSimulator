@@ -10,10 +10,11 @@ public class ResultProcessingTests {
     @Test
     public void calculateEfficiencyOneHundredPercent() {
         ResultProcessing rp = new ResultProcessing();
-        List<Boolean> listOfResults = new ArrayList<>();
-
+        List<Auction> listOfResults = new ArrayList<>();
+        Bidder bidder = new Bidder();
+        Auction fp = new FirstPrice (bidder,0,0,true);
         for (int i = 0; i < 10; i++) {
-            listOfResults.add(true);
+            listOfResults.add(fp);
         }
         assertEquals(rp.calculateAuctionEfficiency(listOfResults), 1.00);
     }
@@ -21,10 +22,12 @@ public class ResultProcessingTests {
     @Test
     public void calculateEfficiencyZeroPercent() {
         ResultProcessing rp = new ResultProcessing();
-        List<Boolean> listOfResults = new ArrayList<>();
+        List<Auction> listOfResults = new ArrayList<>();
+        Bidder bidder = new Bidder();
+        Auction fp = new FirstPrice (bidder,0,0,false);
 
         for (int i = 0; i < 10; i++) {
-            listOfResults.add(false);
+            listOfResults.add(fp);
         }
         assertEquals(rp.calculateAuctionEfficiency(listOfResults), 0.00);
     }
@@ -32,11 +35,13 @@ public class ResultProcessingTests {
     @Test
     public void calculateEfficiencyFiftyPercent() {
         ResultProcessing rp = new ResultProcessing();
-        List<Boolean> listOfResults = new ArrayList<>();
-
+        List<Auction> listOfResults = new ArrayList<>();
+        Bidder bidder = new Bidder();
+        Auction fp = new FirstPrice (bidder,0,0,true);
+        Auction fpTwo = new FirstPrice(bidder,0,0,false);
         for (int i = 0; i < 10; i++) {
-            listOfResults.add(false);
-            listOfResults.add(true);
+            listOfResults.add(fp);
+            listOfResults.add(fpTwo);
         }
         assertEquals(rp.calculateAuctionEfficiency(listOfResults), 0.5);
     }

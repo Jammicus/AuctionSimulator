@@ -61,12 +61,21 @@ public class Auctioneer {
                 listOfResults.get(resultPointer).printAuctionResults();
             }
         } else {
-            System.out.println("Oh nooooo");
+            System.out.println("Something went wrong, please restart the application");
+            System.exit(1);
         }
+
+        printResultProcessing(listOfResults);
     }
 
     private void storeAuctionResults(Auction auctionResults) {
         listOfResults.add(auctionResults);
+    }
+
+    private void printResultProcessing(List<Auction> auctionResults){
+        ResultProcessing rp = new ResultProcessing();
+        System.out.println("The average winning bid is " + rp.calculateAverageWinningBid(auctionResults));
+        System.out.println("The auction was " + rp.calculateAuctionEfficiency(auctionResults)+"% efficient");
     }
 
     public int getNumberOfResults() {

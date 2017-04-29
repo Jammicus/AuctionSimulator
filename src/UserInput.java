@@ -79,7 +79,7 @@ public class UserInput {
         ui.numberOfSimulations = scanner.nextInt();
 
         System.out.println("Would you like to calculate the optimal bidding point?");
-        ui.calculateOptimalBiddingPoint = scanner.nextLine();
+        ui.calculateOptimalBiddingPoint = scanner.next();
 
         System.out.println("Validating your input, please wait.");
         ui.auctionType = ui.auctionType.replaceAll("\\s+", "");
