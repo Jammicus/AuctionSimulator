@@ -20,9 +20,7 @@ public class ResultProcessing {
         return occurrencesOfTrue / (highestBidderWonResults.size());
     }
 
-
     public double calculateAverageWinningBid(List<Auction> winningBidders) {
-
         double summedWinningBids = 0;
 
         for (int i = 0; i < winningBidders.size(); i++) {
@@ -31,6 +29,4 @@ public class ResultProcessing {
 
         return summedWinningBids / winningBidders.size();
     }
-
-
 }

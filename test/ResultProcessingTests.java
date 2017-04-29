@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ResultProcessingTests {
 
-
     @Test
     public void calculateEfficiencyOneHundredPercent() {
         ResultProcessing rp = new ResultProcessing();
@@ -134,6 +133,4 @@ public class ResultProcessingTests {
 
         assertEquals(200.22, rp.calculateAverageWinningBid(auctionResults), 0.001);
     }
-
-
 }
