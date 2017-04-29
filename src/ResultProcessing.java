@@ -17,7 +17,7 @@ public class ResultProcessing {
             }
         }
 
-        return occurrencesOfTrue / (highestBidderWonResults.size()) * 100;
+        return occurrencesOfTrue / (highestBidderWonResults.size());
     }
 
     public double calculateAverageWinningBid(List<Auction> winningBidders) {

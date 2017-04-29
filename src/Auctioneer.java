@@ -75,7 +75,7 @@ public class Auctioneer {
     private void printResultProcessing(List<Auction> auctionResults){
         ResultProcessing rp = new ResultProcessing();
         System.out.println("The average winning bid is " + rp.calculateAverageWinningBid(auctionResults));
-        System.out.println("The auction was " + rp.calculateAuctionEfficiency(auctionResults)+"% efficient");
+        System.out.println("The auction was " + rp.calculateAuctionEfficiency(auctionResults)*100+"% efficient");
     }
 
     public int getNumberOfResults() {
