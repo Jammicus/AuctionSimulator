@@ -18,7 +18,7 @@ public class Descending implements Auction {
         this.priceWinningBidderPays = priceWinningBidderPays;
         this.bidderID = winningBidder.getId();
         this.initialBidderMoney = winningBidder.getMoney();
-        this.auctionEfficient =auctionEfficient;
+        this.auctionEfficient = auctionEfficient;
 
     }
 
@@ -33,7 +33,7 @@ public class Descending implements Auction {
 
         winningBidder = (winnerDetermination(bidders, auctionValue));
         auctionEfficient = isAuctionEfficient(winningBidder, bidders);
-        return new Descending(winningBidder, auctionValue, auctionValue,auctionEfficient);
+        return new Descending(winningBidder, auctionValue, auctionValue, auctionEfficient);
     }
 
     @Override
@@ -103,6 +103,15 @@ public class Descending implements Auction {
             return auctionValue - 10;
         } else {
             return auctionValue - 1;
+        }
+    }
+
+    @Override
+    public boolean isAuctionEfficient(Bidder winningBidder, List<Bidder> sortedListOfBiddersFromHighToLow) {
+        if (winningBidder.getMoney() == sortedListOfBiddersFromHighToLow.get(0).getMoney()) {
+            return true;
+        } else {
+            return false;
         }
     }
 }

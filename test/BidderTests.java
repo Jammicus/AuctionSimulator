@@ -99,4 +99,76 @@ public class BidderTests {
         List<Bidder> bidderList;
         bidderList = bidder.createBidders(10, 0.0, 100.0);
     }
+
+    @Test
+    public void changeBidderValueZeroPercent() {
+        Bidder bidder = new Bidder();
+        bidder.setMoney(100);
+        bidder.changeBiddersValueByPercentage(bidder, 0);
+
+        assertEquals(0, bidder.getMoney());
+    }
+
+    @Test
+    public void changeBidderValueTwentyFivePercent() {
+        Bidder bidder = new Bidder();
+        bidder.setMoney(100);
+        bidder.changeBiddersValueByPercentage(bidder, 25);
+
+        assertEquals(25, bidder.getMoney());
+    }
+
+    @Test
+    public void changeBidderValueFiftyPercent() {
+        Bidder bidder = new Bidder();
+        bidder.setMoney(100);
+        bidder.changeBiddersValueByPercentage(bidder, 50);
+
+        assertEquals(50, bidder.getMoney());
+    }
+
+    @Test
+    public void changeBidderValueSeventyFivePercent() {
+        Bidder bidder = new Bidder();
+        bidder.setMoney(100);
+        bidder.changeBiddersValueByPercentage(bidder, 75);
+
+        assertEquals(75, bidder.getMoney());
+    }
+
+    @Test
+    public void changeBidderValueOneHundredPercent() {
+        Bidder bidder = new Bidder();
+        bidder.setMoney(100);
+        bidder.changeBiddersValueByPercentage(bidder, 100);
+
+        assertEquals(100, bidder.getMoney());
+    }
+
+    @Test
+    public void changeBidderValueDecimal() {
+        Bidder bidder = new Bidder();
+        bidder.setMoney(100);
+        bidder.changeBiddersValueByPercentage(bidder, 0.5);
+
+        assertEquals(0.5, bidder.getMoney());
+    }
+
+    @Test
+    public void changeBidderValueNegative() {
+        Bidder bidder = new Bidder();
+        bidder.setMoney(100);
+        bidder.changeBiddersValueByPercentage(bidder, -0.5);
+
+        assertEquals(-0.5, bidder.getMoney());
+    }
+
+    @Test
+    public void changeBidderValueOneThousand() {
+        Bidder bidder = new Bidder();
+        bidder.setMoney(1000);
+        bidder.changeBiddersValueByPercentage(bidder, 50);
+
+        assertEquals(500, bidder.getMoney());
+    }
 }

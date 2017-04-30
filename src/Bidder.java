@@ -42,6 +42,16 @@ public class Bidder implements Comparable<Bidder> {
         this.id = id;
     }
 
+    //Do I want this as 0.5 or 75?
+    public Bidder changeBiddersValueByPercentage(Bidder aBidder, double percentageValue) {
+        double bidderValue = aBidder.getMoney();
+
+        bidderValue = bidderValue * (percentageValue / 100);
+
+        aBidder.setMoney(bidderValue);
+        return aBidder;
+    }
+
     public static List<Bidder> sortBiddersByMoneyAscending(List<Bidder> bidders) {
         Collections.sort(bidders);
         return bidders;

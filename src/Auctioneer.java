@@ -4,7 +4,6 @@ import java.util.List;
 public class Auctioneer {
 
     private static Auctioneer auctioneer;
-
     private static int resultPointer = 0;
 
 
@@ -65,6 +64,7 @@ public class Auctioneer {
             System.exit(1);
         }
 
+
         printResultProcessing(listOfResults);
     }
 
@@ -72,10 +72,10 @@ public class Auctioneer {
         listOfResults.add(auctionResults);
     }
 
-    private void printResultProcessing(List<Auction> auctionResults){
+    private void printResultProcessing(List<Auction> auctionResults) {
         ResultProcessing rp = new ResultProcessing();
         System.out.println("The average winning bid is " + rp.calculateAverageWinningBid(auctionResults));
-        System.out.println("The auction was " + rp.calculateAuctionEfficiency(auctionResults)*100+"% efficient");
+        System.out.println("The auction was " + rp.calculateAuctionEfficiency(auctionResults) * 100 + "% efficient");
     }
 
     public int getNumberOfResults() {
@@ -86,4 +86,6 @@ public class Auctioneer {
         resultPointer = 0;
         listOfResults.clear();
     }
+
+
 }

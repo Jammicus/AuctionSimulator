@@ -89,4 +89,14 @@ public class FirstPrice implements Auction {
 
         return tieBreakBidders.get(random.nextInt(tieBreakBidders.size() - 1) + 0);
     }
+
+    @Override
+    public boolean isAuctionEfficient(Bidder winningBidder, List<Bidder> sortedListOfBiddersFromHighToLow) {
+        //Reliant of .getMoney, this is bad.
+        if (winningBidder.getMoney() == sortedListOfBiddersFromHighToLow.get(0).getMoney()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

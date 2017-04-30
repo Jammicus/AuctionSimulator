@@ -61,6 +61,7 @@ public class UserInput {
         UserInput ui = new UserInput();
         Scanner scanner = new Scanner(System.in);
         Auctioneer auctioneer = Auctioneer.getInstance();
+        OptimalBidAuctioneer OBD = new OptimalBidAuctioneer();
 
         System.out.println("Please input the type of auction you would like to simulate");
         ui.auctionType = scanner.nextLine();
@@ -86,6 +87,9 @@ public class UserInput {
         ui.validateUserInput();
 
         auctioneer.prepareAuction(ui);
+        OptimalBidAuctioneer result;
+        result = OBD.prepareOptimalBid(ui);
+        System.out.println("The optimal point is: " + result.getOptimalPercentage() + "% of your valuation");
 
         System.out.println("Would you like to simulate another auction?");
         ui.runAnotherAuction = scanner.next();

@@ -110,4 +110,14 @@ public class Ascending implements Auction {
             return auctionValue + 1;
         }
     }
+
+    @Override
+    public boolean isAuctionEfficient(Bidder winningBidder, List<Bidder> sortedListOfBiddersFromHighToLow) {
+        //Reliant of .getMoney, this is bad.
+        if (winningBidder.getMoney() == sortedListOfBiddersFromHighToLow.get(0).getMoney()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

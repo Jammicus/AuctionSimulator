@@ -12,7 +12,7 @@ public class ResultProcessing {
         double occurrencesOfTrue = 0;
 
         for (int i = 0; i < highestBidderWonResults.size(); i++) {
-            if (highestBidderWonResults.get(i).getWhetherAuctionWasEfficient()==true) {
+            if (highestBidderWonResults.get(i).getWhetherAuctionWasEfficient() == true) {
                 occurrencesOfTrue++;
             }
         }

@@ -88,4 +88,15 @@ public class SecondPrice implements Auction {
         return tieBreakBidders.get(random.nextInt(tieBreakBidders.size() - 1) + 0);
     }
 
+    //refactor this so it just takes the highest valued bidder, and the auction results.
+
+    @Override
+    public boolean isAuctionEfficient(Bidder winningBidder, List<Bidder> sortedListOfBiddersFromHighToLow) {
+        if (winningBidder.getMoney() == sortedListOfBiddersFromHighToLow.get(0).getMoney()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
