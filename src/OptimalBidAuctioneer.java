@@ -1,9 +1,13 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class OptimalBidAuctioneer {
-    int numberOfSimulations = 1000;
-    double[] optimalBidArray = new double[101];
-    int optimalPercentage;
+    private int numberOfSimulations = 1000;
+    private static double[] optimalBidArray = new double[101];
+    private int optimalPercentage;
+
+    //add each optimal point to the result?
+    private List<OptimalBidAuctioneer> listOfOptimalPoints = new ArrayList<>();
 
     public OptimalBidAuctioneer() {
     }
@@ -96,5 +100,9 @@ public class OptimalBidAuctioneer {
 
     public int getOptimalPercentage() {
         return this.optimalPercentage;
+    }
+
+    public List<OptimalBidAuctioneer> returnListOfOptimalPoints() {
+        return listOfOptimalPoints;
     }
 }

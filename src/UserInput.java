@@ -87,9 +87,13 @@ public class UserInput {
         ui.validateUserInput();
 
         auctioneer.prepareAuction(ui);
-        OptimalBidAuctioneer result;
-        result = OBD.prepareOptimalBid(ui);
-        System.out.println("The optimal point is: " + result.getOptimalPercentage() + "% of your valuation");
+        if (ui.setOptimalBiddingPoint(ui.calculateOptimalBiddingPoint)) {
+            OptimalBidAuctioneer result;
+
+            System.out.println("Calculating the optimal bidding point, please wait");
+            result = OBD.prepareOptimalBid(ui);
+            System.out.println("The optimal point is: " + result.getOptimalPercentage() + "% of your valuation");
+        }
 
         System.out.println("Would you like to simulate another auction?");
         ui.runAnotherAuction = scanner.next();
@@ -143,11 +147,10 @@ public class UserInput {
         }
     }
 
-    private void setOptimalBiddingPoint(String yesOrNo) {
+    private boolean setOptimalBiddingPoint(String yesOrNo) {
         if (yesOrNo.equalsIgnoreCase("yes")) {
-            //
-        } else {
-            System.out.println("The optimal bidding point will not be calculated");
+            return true;
         }
+        return false;
     }
 }
