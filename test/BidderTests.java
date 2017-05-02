@@ -149,26 +149,26 @@ public class BidderTests {
     public void changeBidderValueDecimal() {
         Bidder bidder = new Bidder();
         bidder.setMoney(100);
-        bidder.changeBiddersValueByPercentage(bidder, 0.5);
+        bidder.changeBiddersValueByPercentage(bidder, 50);
 
-        assertEquals(0.5, bidder.getMoney());
+        assertEquals(50, bidder.getMoney());
     }
 
     @Test
     public void changeBidderValueNegative() {
         Bidder bidder = new Bidder();
         bidder.setMoney(100);
-        bidder.changeBiddersValueByPercentage(bidder, -0.5);
+        bidder.changeBiddersValueByPercentage(bidder, -50);
 
-        assertEquals(-0.5, bidder.getMoney());
+        assertEquals(-50, bidder.getMoney());
     }
 
     @Test
     public void changeBidderValueOneThousand() {
         Bidder bidder = new Bidder();
         bidder.setMoney(1000);
-        bidder.changeBiddersValueByPercentage(bidder, 50);
+        bidder.changeBiddersValueByPercentage(bidder, 75);
 
-        assertEquals(500, bidder.getMoney());
+        assertEquals(750, bidder.getMoney());
     }
 }
