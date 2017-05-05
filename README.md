@@ -1,17 +1,17 @@
 # Auction Simulator
 Updated version of my final year project.
 
-16/04/17
 
-You can now run auctions after your auction has finished, preventing you from having to re-load the application each time
-
-
-15/04/17
-
-Basic auction functionality has been added for the following types of auctions:
+The following types of auctions can be simulated:
 
 * Ascending
 * Descending
 * First Price
 * Second Price
+
+
+You can also find the optimal bidding point for these auctions based on how much money you are bringing to the auction, and the number of bidders in the auction
+
+
+
 
